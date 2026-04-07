@@ -6,6 +6,7 @@
 -->
 
 <html lang="en">
+
 <head>
   <title>Abhigya Parashar</title>
   <meta charset="utf-8">
@@ -14,101 +15,292 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      padding-top: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .sidebar {
+      padding-right: 30px;
+      margin-bottom: 40px;
+    }
+    .sidebar img {
+      margin-bottom: 15px;
+    }
+    .sidebar p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .main-content {
+      padding-left: 30px;
+      padding-right: 20px;
+    }
+    .intro-section {
+      margin-bottom: 50px;
+      line-height: 1.8;
+    }
+    .intro-section h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    .work-section {
+      margin-bottom: 60px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    .work-section:last-child {
+      border-bottom: none;
+    }
+    .work-section h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-size: 24px;
+      color: #222;
+    }
+    .work-section h3 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .work-section img.company-logo {
+      margin: 0;
+      display: inline-block;
+    }
+    .work-section p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    .project-item {
+      margin-bottom: 25px;
+      padding-left: 20px;
+    }
+    .project-item strong {
+      color: #444;
+    }
+    .section-image {
+      border-radius: 8px;
+      margin: 20px 20px 20px 0;
+      float: left;
+      clear: both;
+    }
+    .section-image:nth-of-type(2) {
+      clear: both;
+    }
+    .clearfix {
+      clear: both;
+    }
+    .role-duration {
+      color: #666;
+      font-style: italic;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        margin-bottom: 30px;
+        padding-right: 0;
+      }
+      .main-content {
+        padding-left: 0;
+      }
+      .section-image {
+        width: 100% !important;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-          <li><a href="#work_experience">Work Experience</a></li>
-				  <li><a href="#side_projects">Side Projects</a></li>
-				  <li><a href="#publications">Publications</a></li> 
-          <li><a href="#">CV</a></li> 
-          <li><a href="#hobbies_and_fun">Hobbies and Fun</a></li>
-				  
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
-        <div class="row">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#work_experience">Work Experience</a></li>
+          <li><a href="#side_projects">Side Projects</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#">CV</a></li>
+          <li><a href="#hobbies_and_fun">Hobbies and Fun</a></li>
 
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-3 col-xs-12">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;">
-                  <b>Abhigya Parashar</b></div><br>
-                    <!-- Main Image -->
-                  <img class="img-responsive" src="img/Me.jpeg"  alt="" width="235" style="border-radius:4%"><br>
-                <p>Email: <b><a href = "mailto: abhigyaparashar22@gmail.com"></a>abhigyaparashar22@gmail.com</b><br>
-                <p> Eindhoven, Netherlands</p>
-                <p>Embedded Software Engineer<br>
-                Signify (Philips Lighting)<br>
-                <p><a href = "https://www.linkedin.com/in/abhigya-parashar/">LinkedIn |</a><a href = "https://github.com/Abhigya98"> Github  |</a><a href="https://scholar.google.com/citations?user=glWXv9UAAAAJ&hl=en"> Google Scholar</a></p>
-                </p>
-            </div>
-                
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-                <!-- Entries Column -->
-            <!-- <div class="col-md-8" style="height: 100vh;"> -->
-                               
-					      <p><br>Hi!</p>
-					
-					      <p>I'm a embedded software engineer, currently working at Signify (Philips Lighting), Eindhoven, The Netherlands. My focus is on firmware development, smart systems and wireless sensor networks. 
-                  I build efficient, reliable systems close to the hardware and turn complex ideas into working products. I am curious by nature and love to learn about new technologies and how it shapes society. 
-                  The tech, economical as well as the social aspect of it. I am inetersted in real time systems and intelligent edge devices. I explore my hobbies and passion by reading, building my own pet projects 
-                  which you can checkout on my github and conversations over coffee and boardgames.</p>
-					      <p>I completed my bachelors in India at Ramiah Institute of Technology in Electronics and Telecommunication. I moved to Europe in October of 2021 during the covid era to pursue my masters. 
-                  I joined EIT Digital master school for masters in Embedded systems. The first year of my masters was in the very unique city of Berlin. I attended a summer school at Alto University, Helsinki. 
-                  I moved to the Netherlands for my second year of masters. I started my internship here and have stayed to continue working.</p>
-                
-            <!-- </div>  -->
+  <!-- Page Content -->
+  <div class="container">
 
-            <div class="col" style="margin-top:3%; text-align:justify;"> 
-              <h2 id="Work Experience">Work Experience</h2>
-              <h3>Embedded Software Engineer <img src="img/SignifyLogo.webp" alt="" height="50" width= "150" style="margin-bottom: 7px; margin-left: 15px;"></h3>
-            </div>
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
+    <div class="row">
 
-            
+      <!-- Contact Info on the Sidebar -->
+      <div class="col-md-3 col-xs-12 sidebar">
+        <div style="font-family: 'Oswald', sans-serif; font-size: 32px; margin-bottom: 15px;">
+          <b>Abhigya Parashar</b>
         </div>
+        <!-- Main Image -->
+        <img class="img-responsive" src="img/Me.jpeg" alt="Abhigya Parashar" width="235" style="border-radius: 8%; display: block;">
+        <p><strong>Embedded Software Engineer</strong><br>
+        Signify (Philips Lighting)<br>
+        Eindhoven, Netherlands</p>
+        <p>
+          <strong>Email:</strong><br>
+          <a href="mailto:abhigyaparashar22@gmail.com">abhigyaparashar22@gmail.com</a>
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/abhigya-parashar/" target="_blank">LinkedIn</a> • 
+          <a href="https://github.com/Abhigya98" target="_blank">GitHub</a> • 
+          <a href="https://scholar.google.com/citations?user=glWXv9UAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        </p>
+      </div>
+
+      <!-- Main Content Column -->
+      <div class="col-md-9 col-xs-12 main-content">
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+          <h1>Hi! 👋</h1>
+          <p>I'm an embedded software engineer, and I care about building systems that actually work—not just in the lab, but in the real world. I spend my time 
+            solving the problems that show up when you deploy thousands of devices to customer sites and can't just walk over and fix them.</p>
+          <p>At <strong>Signify</strong>, I design firmware for intelligent sensor networks that power smart buildings. The work is deeply technical—architecture design, 
+            wireless optimization, managing trade-offs between power consumption and performance—but it's grounded in something real: improving how buildings actually function, 
+            saving energy, and making customers' lives easier.</p>
+          <p>What drives me is the intersection of constraints and possibility. Every device in the field has limits: battery life, memory, latency budgets. Those constraints force 
+            you to think differently, to be creative. I love that. I also love understanding the full picture—not just the code, but the business impact, the field realities, and the 
+            people using what you build.</p>
+          <p>Beyond work, I'm genuinely curious about how technology shapes the world—the economic and social dimensions, not just the technical ones. I fuel that curiosity by 
+            reading extensively, building side projects, and having long conversations. I've lived in India (Bangalore), Germany (Berlin), Finland (Helsinki), and now the Netherlands (Eindhoven)—each 
+            place taught me something different about how to approach problems.</p>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="work-section">
+          <h2 id="work_experience">Work Experience</h2>
+
+          <h3><img src="img/SignifyLogo.webp" alt="Signify Logo" height="40" width="100" class="company-logo">Embedded Software Engineer</h3>
+          <p class="role-duration">August 2025 – Present (Promoted) | Eindhoven, Netherlands</p>
+
+          <img src="img/MSB.jpeg" alt="Signify office" class="section-image" width="250">
+          <p>I develop embedded firmware for intelligent sensor networks in smart indoor lighting systems. My work spans the full development lifecycle—from architecture design and feature implementation to field validation and customer issue resolution. I partner with cross-functional teams to deliver solutions that balance technical performance with business needs.</p>
+          
+          <p>I've been with Signify since February 2023—started as an Intern, transitioned to <strong>Assistant Development Engineer</strong> in February 2024 (after taking time to be with my family in India), and was promoted to <strong>Embedded Software Engineer</strong> in August 2025. I own projects from conception through deployment, with a track record of delivering solutions that reduce operational costs and improve scalability for large-scale deployments.</p>
+
+          <p><strong>Key Projects</strong></p>
+
+          <div class="project-item">
+            <p><strong>1. Faster Firmware Updates (2023–2024)</strong><br>
+              I found myself standing in front of a real problem: devices in the field could only be updated via Zigbee, and it took 2.5–4 hours to update a 200-device network. Even worse, it required gateways—additional hardware the customer might not have. When bugs surfaced, we were stuck.<br><br>
+              I designed and implemented a Bluetooth-based update system that works with any mobile phone. No gateways. No special infrastructure. Just your phone and a device.<br><br>
+              <strong>Result:</strong> Update time dropped to ~25 minutes from ~4 hours. Operational costs plummeted. Troubleshooting went from "weeks" to "hours." This feature ships in all new Signify sensor devices now. It's not glamorous work, but it has impact.</p>
+          </div>
+
+          <div class="project-item">
+            <p><strong>2. SDK Modernization & Integration</strong><br>
+              Signify had fragmented SDKs across multiple product lines—each with its own quirks, versioning headaches, and maintenance burden. Scaling became painful. Every new product release required re-inventing wheels.<br><br>
+              I took ownership of the entire intake process: evaluated SDK versions, identified breaking changes, designed a modular architecture, and ensured the transition didn't introduce performance regressions or memory bloat. I made it repeatable for future upgrades.<br><br>
+              <strong>Result:</strong> Zero regression in performance or memory usage. A process that can scale to dozens of products. This is work that doesn't make headlines, but it makes the entire organization more efficient.</p>
+          </div>
+
+          <div class="project-item">
+            <p><strong>3. Platform Unification (Ongoing)</strong><br>
+              Signify maintains multiple hardware platforms and product lines with overlapping capabilities. The result: maintenance overhead, support complexity, and slower product launches. We need to consolidate without breaking thousands of devices already in the field.<br><br>
+              I'm architecting a unified firmware platform that consolidates multiple product lines while maintaining backward compatibility and seamless data migration. It's a multi-year effort, but it's the right architectural decision for where the company is heading.<br><br>
+              <strong>Learning:</strong> Large-scale system design isn't just about the code. It's about stakeholder alignment, technical risk management, and thinking three years ahead.</p>
+          </div>
+
+          <p><strong>Day-to-Day Responsibilities</strong></p>
+          <ul>
+            <li>Feature development and validation across the full lifecycle</li>
+            <li>Automated testing frameworks (BDD, Python)</li>
+            <li>Cross-team collaboration with hardware and cloud teams</li>
+            <li>Customer issue diagnosis and root-cause resolution</li>
+          </ul>
+
+          <div class="clearfix"></div>
+          <img src="img/Office lighting.jpeg" alt="Office lighting systems" class="section-image" width="250" style="border-radius: 10%;">
+          
+          <p><strong>Master's Internship & Research (2022–2023)</strong></p>
+          <p>During my final year of masters, I completed a 6-month research internship that became the foundation for much of my work at Signify. I was given a challenge: develop a way to measure network performance in large-scale Zigbee deployments holistically.</p>
+          
+          <p>I built an algorithm and testing framework that tracks reliability, robustness, and responsiveness with quantitative metrics. The result: automated "health reports" for deployed networks. This directly solved a real pain point at Signify—ensuring that SDK upgrades and firmware changes don't quietly degrade performance in the field. It's a tool that's still used today in our validation pipeline.</p>
+
+          <img src="img/paper presentation.jpeg" alt="Presenting research at PIMRC Conference in Valencia" class="section-image" width="250" style="border-radius: 8%;">
+          <p><strong>Valencia, 2024</strong><br>
+          I presented this research at the PIMRC International Conference in Valencia—and this picture represents something I'm proud of. I went on my own dime despite presenting on behalf of Signify, because I believed in the work and wanted to contribute to the research community. It was an investment in myself and in pushing the boundaries of what I could do. That conference gave me visibility, credibility, and connections that have opened doors ever since.</p>
+          
+          <p><a href="https://ieeexplore.ieee.org/abstract/document/10817217" target="_blank">Read the full paper →</a></p>
+
+          <div class="clearfix"></div>
+        </section>
+
+        <!-- Side Projects Section -->
+        <section class="work-section">
+          <h2 id="side_projects">Side Projects</h2>
+          <p>Coming soon. I love tinkering with embedded systems, IoT, and open-source contributions. Check out my <a href="https://github.com/Abhigya98" target="_blank">GitHub</a> for ongoing work.</p>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="work-section">
+          <h2 id="publications">Publications</h2>
+
+          <p><strong>Peer-Reviewed</strong></p>
+          <ul>
+            <li><a href="https://ieeexplore.ieee.org/abstract/document/10817217" target="_blank">Network Performance Monitoring in Large-Scale Zigbee Deployments</a> — PIMRC 2024, Valencia</li>
+          </ul>
+
+          <p><strong>Technical Reports & Thesis</strong></p>
+          <ul>
+            <li>Performance Monitoring Framework for Wireless Sensor Networks — EIT Digital Masters Thesis, 2023</li>
+          </ul>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section class="work-section">
+          <h2 id="hobbies_and_fun">Outside of Work</h2>
+          <p>I spend a lot of time thinking about how technology intersects with society. Not just the "what" and "how," but the "why"—what wider problems are we solving, and at what cost? I read extensively: books on technology strategy, systems thinking, economics, and culture. It helps me see beyond the immediate problem.</p>
+          
+          <p>I also build. Whether it's tinkering with microcontrollers, writing small tools, or contributing to open-source projects, I need to make things. It's how I learn, experiment, and stay grounded in the craft.</p>
+          
+          <p>Above all, I believe in conversation. Long conversations over coffee, board games with friends, discussions about ideas. Those moments where someone says something that changes how you think about a problem—that's where growth happens.</p>
+          
+          <p><strong>Currently exploring:</strong> Sustainable systems design, edge AI, the future of distributed computing, and how to build technology that doesn't optimize for the wrong metrics.</p>
+        </section>
+
+      </div>
 
 
     </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
+
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Other people may like it too! -->
+  <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain
+    Academic</a>
+
 </body>
 
 </html>
