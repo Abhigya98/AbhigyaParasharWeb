@@ -96,7 +96,7 @@ export default function Home() {
             {/* Left: Profile photo with minimal styling */}
             <div className="relative md:col-span-1">
               <Image
-                src="/img/Me.jpeg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/Me.jpeg`}
                 alt="Abhigya Parashar"
                 width={280}
                 height={360}
