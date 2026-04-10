@@ -1,72 +1,72 @@
-# Plain-Academic Template
-A truly simple website template for academics. It was developed with simplicity in mind (both in terms of style and in code complexity).
+# Abhigya Parashar Portfolio
 
-Just download the two files (index.html and photo.gif) and start editing straightaway.
+This repository now uses a modern static Next.js setup for an interactive personal portfolio.
 
-<img src="/img/frontpage.png" width="60%" height="60%">
+## Tech Stack
 
-# How To
+- Next.js (App Router, static export)
+- React + TypeScript
+- Tailwind CSS
+- Framer Motion (subtle interactivity)
+- Lucide icons
+- GitHub Actions for GitHub Pages deployment
 
-### Step 1: Fork the Repository
-1. Open the **Plain-Academic Template** repository on GitHub.
-2. Click the **Fork** button in the top-right corner to create your own copy.
+## Project Structure
 
-### Step 2: Edit Directly on GitHub
-1. Open the `index.html` file in your forked repository.
-2. Click the pencil icon (✏️) to edit the file.
-3. Replace the placeholder text with your own details:
-   - Update your name, contact information, and academic details.
-   - Add your own links to papers, projects, or CV.
+- `src/app/page.tsx` - Main homepage
+- `src/components/` - Reusable UI blocks (navigation and section wrappers)
+- `src/app/globals.css` - Global styles and design tokens
+- `public/img/` - Images used by the site
+- `.github/workflows/deploy.yml` - GitHub Pages deployment workflow
 
-### Step 3: Replace the Profile Picture
-1. Upload your own profile picture:
-   - Click **Add file** → **Upload files** in your repository.
-   - Ensure your picture is named `photo.gif` (so it replaces the existing one).
+## Local Development
 
-### Step 4: Enable GitHub Pages
-1. Go to your repository’s **Settings**.
-2. Scroll down to the **Pages** section.
-3. In the "Source" dropdown, select the `main` branch and click **Save**.
-4. Your website will be live at `https://<your-username>.github.io/<repo-name>/`.
+1. Install dependencies:
 
----
-
-### Editing Locally (Optional)
-If you prefer to work locally instead of editing directly on GitHub:
-1. Clone your forked repository:
-   ```bash
-     git clone https://github.com/<your-username>/<repo-name>.git
-    ```
-
-2. Open the files in a text editor like VS Code.
-
-3. After making changes, push them back to GitHub:
 ```bash
-git add .
-git commit -m "Updated my website"
-git push
+npm install
 ```
 
+2. Run dev server:
 
-# Contribute
+```bash
+npm run dev
+```
 
-If you have suggestions for improvements feel free to make a pull request or open an issue.
+3. Build static export:
 
-If you are using it, I'd be happy to hear from you! You can drop me a line at ([link](https://mavroud.is))!
+```bash
+npm run build
+```
 
+The static output is generated in `out/`.
 
-You can get more ideas from other nice people using this template: 
-- [Jonathan Bootle](https://jbootle.github.io/)
-- [Hossein Rezaei](https://www.cs.ucf.edu/~rezaei)
-- [Gustavo Cevolani](http://www.gustavocevolani.it/)
-- [Isabel Papadimitriou](https://nlp.stanford.edu/~isabelvp/)
-- [Debjani Saha](https://www.cs.umd.edu/~dsaha/) 
-- [Dong Chen](https://dongchen-coder.github.io/)
-- [Sourav Chatterjee](https://statweb.stanford.edu/~souravc/index.html)
-- [Chenfanfu Jiang](https://www.seas.upenn.edu/~cffjiang/)
-- [Masum Hasan](http://masumhasan.net/)
-- [Tapajit Dey](https://tapjdey.github.io/)
-- [Jakob Brounstein](https://jakobbrounstein.github.io/)
+## GitHub Pages Deployment
 
+This repo is configured to deploy from GitHub Actions.
 
-Please do not remove the attibution link of the template, so that other people can find it too.
+1. In GitHub, go to repository settings.
+2. Open Pages settings.
+3. Set source to **GitHub Actions**.
+4. Push to `main` and the workflow deploys the static site.
+
+### Important base path note
+
+The deploy workflow sets:
+
+- `NEXT_PUBLIC_BASE_PATH: /AbhigyaParasharWeb`
+
+If you rename the repository, update that value in `.github/workflows/deploy.yml`.
+
+## Content Workflow
+
+Current focus is interactive structure and design foundation.
+
+You can continue refining content directly in:
+
+- `src/app/page.tsx` (section copy)
+- `public/img/` (visual assets)
+
+## Legacy File
+
+`index.html` from the earlier static template is still in the repo as a reference source.

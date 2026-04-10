@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fbfaf6;
+  --ink: #13222f;
+  --muted: #4e5b66;
+  --accent: #c35b2d;
+  --sea: #2f7c85;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(47, 124, 133, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 0%, rgba(195, 91, 45, 0.15), transparent 28%),
+    linear-gradient(180deg, #fffdf9 0%, #fbfaf6 100%);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.section-shell {
+  @apply rounded-3xl border border-[#e7e2d9] bg-white/90 p-5 shadow-card md:p-8;
+}
+
+.timeline-item {
+  @apply relative py-4;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 26px;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px #fbfaf6;
+}
+
+.timeline-rail {
+  @apply relative space-y-4 border-l-2 border-[#eadfd1] pl-6;
+}
+
+.highlight-pill {
+  @apply rounded-full border border-[#e6d8c6] bg-[#fff8ef] px-3 py-1 text-xs font-medium text-[#4a5a67];
+}
+
+.noise-overlay {
+  background-image: radial-gradient(rgba(19, 34, 47, 0.08) 0.4px, transparent 0.4px);
+  background-size: 4px 4px;
+}
+
+.reveal-up {
+  animation: revealUp 600ms ease both;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-up {
+    animation: none;
+  }
+}
