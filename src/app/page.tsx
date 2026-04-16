@@ -25,26 +25,26 @@ const projectCards = [
   {
     title: "BLE OTA Deployment Optimizer",
     type: "Embedded",
-    summary: "Firmware update path design for large Zigbee + BLE deployments, reducing update windows dramatically.",
+    summary: "The update problem that was actually a scheduling problem. Redesigned the BLE OTA flow for 200-device deployments — brought update time from 2.5–4 hours down to about 25 minutes.",
     stack: ["C", "BLE", "Zigbee", "RTOS"],
   },
   {
     title: "Network Performance Monitoring Framework",
     type: "Research",
-    summary: "Metrics-based framework to evaluate reliability and responsiveness in large-scale wireless sensor networks.",
+    summary: "Part of my thesis work. Built a framework to actually see what a large Zigbee network is doing — because intuition alone doesn't scale to hundreds of nodes.",
     stack: ["Python", "Validation", "WSN", "Analytics"],
   },
   {
     title: "BDD Validation Pipeline",
     type: "Automation",
-    summary: "Automated test pipeline to detect regressions in firmware integrations and release candidates.",
+    summary: "I got tired of catching regressions manually. A BDD-style test pipeline in Python that made releases less stressful for everyone involved.",
     stack: ["Python", "BDD", "C#", "CI"],
   },
   {
-    title: "Smart Hospital Embedded Prototype",
+    title: "ESP32 Audio Visualiser",
     type: "Embedded",
-    summary: "Embedded C and image-processing driven prototype work for assistive and hospital smart-system workflows.",
-    stack: ["Embedded C", "Image Processing", "Prototyping"],
+    summary: "A hobby project, still in progress. An audio visualiser driven by an ESP32. I find it hard to stop tinkering with it, which is probably a good sign.",
+    stack: ["ESP32", "C", "Electronics"],
   },
 ] as const;
 
@@ -84,7 +84,7 @@ export default function Home() {
     <main id="top" className="min-h-screen pb-16">
       <SiteNav activeId={activeSection} />
 
-      <div className="mx-auto flex max-w-7xl flex-col px-4 pt-10 md:px-10 md:pt-16">
+      <div className="mx-auto flex max-w-7xl flex-col px-4 pt-10 md:px-6 md:pt-16">
         <div className="space-y-24">
           {/* Merged hero section - profile + intro + content */}
           <motion.section
@@ -128,59 +128,78 @@ export default function Home() {
             {/* Right: Content flowing naturally */}
             <div className="md:col-span-2 flex flex-col justify-start">
               <div>
-                <h2 className="font-display text-5xl leading-tight text-ink lg:text-6xl">
-                  Building embedded systems <span className="text-sea">that work in the field.</span>
-                </h2>
-                <p className="mt-8 text-lg leading-relaxed text-[#3d4d5b]">
-                  I develop firmware for wireless sensor systems at commercial scale. My focus is practical reliability—making
-                  architecture decisions that hold up outside the lab.
+                <p className="mb-4 text-2xl font-medium text-[#3d4d5b]">Hi! 👋</p>
+                <p className="text-lg leading-relaxed text-[#3d4d5b]">
+                  I am Abhigya. I grew up in India, moved to Europe to pursue a master&apos;s in embedded systems, and now live in Eindhoven as an embedded software engineer at{" "}
+                  <span className="font-medium text-[#2a3b48]">Signify</span>.
+                  I develop and validate features in the indoor smart lighting arena by writing firmware in C.
                 </p>
-                <p className="mt-5 text-base leading-relaxed text-[#6a7d8a] italic border-t border-[#e4ddd3] pt-5">
-                  Outside the firmware: 99 books read, 67 waiting. Currently{" "}
-                  <a href="https://www.goodreads.com/user/show/22750463-abhigya-parashar" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">Sapiens and The Undutchables</a>
-                  {" "}— the latter because my partner is Dutch, I live in Eindhoven, and A1 classes are humbling.
-                  The Psychology of Money changed how I think about decisions; Siddhartha changed something harder to name.
-                  When I&apos;m not reading, I&apos;m half-assembling an ESP32 audio visualiser or turning old containers into flower vases.
-                  I find it difficult to throw things away without first asking what they could become.
+                <p className="mt-4 text-lg leading-relaxed text-[#3d4d5b]">
+                  Outside of work, I tinker with electronics — there&apos;s an ESP32 audio visualiser on my desk that&apos;s been <em>almost finished</em> for a few weeks.
+                  Lately, I’ve been focusing on Embedded Linux and Edge AI.
+                  I&apos;m drawn to the places where technology meets real life: how it changes behaviour, how it shapes economies, and its impact on society.
                 </p>
-              </div>
-
-              {/* Skills & Metrics in clean horizontal flow */}
-              <div className="mt-10 space-y-8">
-                <div>
-                  <p className="mb-3 font-display text-sm uppercase tracking-[0.2em] text-[#7a8a96]">Core expertise</p>
-                  <div className="flex flex-wrap gap-3">
-                    <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">
-                      Firmware Architecture
-                    </span>
-                    <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">
-                      Zigbee + BLE
-                    </span>
-                    <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">
-                      RTOS
-                    </span>
-                    <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">
-                      Field Reliability
-                    </span>
+                <p className="mt-4 text-lg leading-relaxed text-[#3d4d5b]">
+                  I am an avid reader, love food, coffee and art and always have an ongoing project.
+                  Right now I am learning Dutch (A2). I write short paragraphs to keep practising.
+                  They are full of mistakes but it is oddly satisfying to see my progress —{" "}
+                  <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/for-fun`} className="underline underline-offset-2 hover:text-sea transition-colors">read them here</a>.
+                </p>
+                {/* Swimming paragraph + Spotify embed — embed floats right, text wraps around it */}
+                <div className="mt-4 overflow-hidden">
+                  <div className="float-right ml-4 mb-1 w-[340px]">
+                    <iframe
+                      src="https://open.spotify.com/embed/episode/30cWGV56Dqnd4dIhs29Ojp"
+                      width="340"
+                      height="100"
+                      style={{ border: "none" }}
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      className="rounded-xl opacity-90"
+                    />
                   </div>
-                </div>
-
-                {/* Stats with subtle accent lines */}
-                <div className="space-y-4 pt-4">
-                  <div className="flex items-baseline gap-4 border-l-2 border-sea pl-5">
-                    <p className="font-display text-3xl font-bold text-ink">~25 min</p>
-                    <p className="text-sm text-[#5a6c7a]">200-device OTA updates (vs. 2.5–4 hours)</p>
-                  </div>
-                  <div className="flex items-baseline gap-4 border-l-2 border-accent pl-5">
-                    <p className="font-display text-3xl font-bold text-ink">2 Countries</p>
-                    <p className="text-sm text-[#5a6c7a]">MSc track: TU Eindhoven + TU Berlin</p>
-                  </div>
-                  <div className="flex items-baseline gap-4 border-l-2 border-[#a8d5c9] pl-5">
-                    <p className="font-display text-3xl font-bold text-ink">Top 20</p>
-                    <p className="text-sm text-[#5a6c7a]">Selected from 6,000+ in innovation challenge</p>
-                  </div>
+                  <p className="text-lg leading-relaxed text-[#3d4d5b]">
+                    At 27, I am fulfilling my long awaited dream of swimming, haha.
+                    That journey led to a conversation on{" "}
+                    <a href="https://open.spotify.com/episode/30cWGV56Dqnd4dIhs29Ojp?si=u4ogZMUSQ9i6VYEL50pGUw" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">Brainport Radio</a>
+                    {" "} with my coach ({" "}<a href="https://www.linkedin.com/posts/meagin-van-der-westhuizen-b875404b_the-courage-to-dive-in-learning-to-swim-activity-7446908227541291008-rRfa?utm_source=share&utm_medium=member_desktop&rcm=ACoAACYEqj8BU57Grn_Uq88VGlcRlWXKnrS5Lug" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">LinkedIn</a>).
+                  </p>
                 </div>
               </div>
+
+              {/* Skills pills */}
+              <div className="mt-8">
+                <p className="mb-3 font-display text-sm uppercase tracking-[0.2em] text-[#7a8a96]">Core professional expertise</p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">Firmware Architecture</span>
+                  <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">Zigbee + BLE</span>
+                  <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">RTOS</span>
+                  <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">Field Reliability</span>
+                </div>
+              </div>
+
+              {/* Quiet CTAs */}
+              {/*
+              <div className="mt-8 border-t border-[#e4ddd3] pt-6">
+                <p className="mb-3 text-sm text-[#8a9aa6]">Visit a section for more details</p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="#work"
+                    className="flex items-center gap-2 rounded-lg bg-ink px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sea"
+                  >
+                    <BriefcaseBusiness size={15} />
+                    Professional work
+                  </a>
+                  <a
+                    href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/for-fun`}
+                    className="flex items-center gap-2 rounded-lg border border-[#c8bfb0] bg-white px-5 py-2.5 text-sm font-medium text-[#3d4d5b] transition hover:border-sea hover:text-sea"
+                  >
+                    <BookOpen size={15} />
+                    Personal &amp; fun stuff
+                  </a>
+                </div>
+              </div>
+              */}
             </div>
           </motion.section>
 
@@ -199,17 +218,19 @@ export default function Home() {
               </p>
               <p className="mt-1 text-sm text-[#526271]">Feb 2023 - Present | Eindhoven, Netherlands</p>
               <p className="mt-4">
-                I develop firmware in C for EFR32 sensor nodes running Zigbee mesh and BLE on Micrium OS III. I own
-                feature delivery end to end: design and implementation.
+                I joined Signify in February 2023, just after finishing a thesis that was done here too. The first months
+                were steep — a new codebase, Micrium OS, and the particular humility of reading someone else&apos;s firmware.
               </p>
               <p className="mt-3">
-                I also lead validation and field issue closure to ensure releases perform reliably outside the lab.
+                The thing I&apos;m most proud of is an OTA update flow I rebuilt for BLE. Before, updating 200 devices
+                took anywhere from 2.5 to 4 hours — mostly because the scheduling logic was fighting itself.
+                I redesigned it and brought that down to about 25 minutes. Nobody announces that at an all-hands,
+                but it matters to the people who maintain those deployments.
               </p>
-              <ul className="mt-4 list-disc space-y-2 pl-5">
-                <li>Built BLE-based OTA flow reducing 200-device update time from 2.5-4 hours to about 25 minutes.</li>
-                <li>Contributed to platform unification across product lines with modular architecture and migration support.</li>
-                <li>Automated test workflows with Python and BDD-style validation.</li>
-              </ul>
+              <p className="mt-3">
+                I also work on platform unification — products that evolved separately and now need to share more.
+                That means touching code that was never meant to be touched again, which is most of the fun.
+              </p>
             </motion.article>
             </div>
           </SectionBlock>
@@ -224,13 +245,15 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={0}
             >
-              <h3 className="font-display text-xl text-ink">Research Intern, ZEN Lab (IISc)</h3>
+              <h3 className="font-display text-xl text-ink">Research Intern, ZEN Lab — IISc</h3>
               <p className="text-sm text-[#526271]">Indian Institute of Science, Bangalore</p>
               <p className="mt-3">
-                Worked on low-power wireless sensor networking and TSCH implementation over IEEE 802.15.4 MAC.
+                My first real research environment. I was working on TSCH — time-slotted channel hopping over 802.15.4 —
+                the protocol that makes low-power mesh networks actually usable. It&apos;s fussy. Timing-sensitive code that
+                doesn&apos;t fail loudly.
               </p>
               <p className="mt-3">
-                Developed communication logic to improve robust trans-reception among constrained network nodes.
+                That internship taught me to read datasheets more carefully than I read almost anything else.
               </p>
             </motion.article>
             <motion.article
@@ -241,14 +264,15 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={1}
             >
-              <h3 className="font-display text-xl text-ink">Embedded Software Engineering Intern, SHG</h3>
-              <p className="text-sm text-[#526271]">Smart Health Global, Bangalore</p>
+              <h3 className="font-display text-xl text-ink">Embedded Software Engineering Intern — Smart Health Global</h3>
+              <p className="text-sm text-[#526271]">Bangalore</p>
               <p className="mt-3">
-                Built healthcare-focused embedded solutions with embedded C and image processing,
-                including assistive systems for visually impaired users.
+                A smaller company, more prototyping, less rigour. I built image-processing work for assistive systems —
+                new territory for me at the time.
               </p>
               <p className="mt-3">
-                Also contributed to smart hospital workflow prototypes where reliability and practicality were key.
+                The most useful thing I took from it was learning to make something work with what you have,
+                not what you wish you had.
               </p>
             </motion.article>
             </div>
@@ -267,12 +291,18 @@ export default function Home() {
               <p className="flex items-center gap-2 font-display text-xl text-ink">
                 <GraduationCap size={20} /> MSc Embedded Systems, EIT Digital
               </p>
-              <p className="mt-1 text-sm text-[#526271]">Oct 2021 - Sept 2023 | TU Eindhoven + TU Berlin</p>
-              <ul className="mt-4 list-disc space-y-2 pl-5">
-                <li>Merit-based full scholarship recipient.</li>
-                <li>Thesis with TU/e and Signify on Zigbee network performance (Grade: 8.95/10).</li>
-                <li>3rd place, Innovation and Entrepreneurship challenge at Aalto Summer School (Aug 2022).</li>
-              </ul>
+              <p className="mt-1 text-sm text-[#526271]">Oct 2021 – Sept 2023 · TU Eindhoven + TU Berlin</p>
+              <p className="mt-4">
+                EIT Digital splits you across two universities in two countries. I was in Eindhoven and Berlin.
+                It&apos;s a funded programme and the students come from everywhere, which makes it interesting
+                in ways the curriculum doesn&apos;t advertise.
+              </p>
+              <p className="mt-3">
+                My thesis was joint with TU/e and Signify — monitoring large-scale Zigbee deployments.
+                It&apos;s how I ended up at Signify; they offered me a job before I&apos;d finished writing.
+                I got 8.95/10, which I mention only because it took a genuinely long time to get the
+                network to do what I needed it to do.
+              </p>
             </motion.article>
             <motion.article
               className="timeline-item"
@@ -283,13 +313,12 @@ export default function Home() {
               custom={1}
             >
               <h3 className="font-display text-xl text-ink">BTech Electronics and Telecommunication</h3>
-              <p className="mt-1 text-sm text-[#526271]">Aug 2016 - Sept 2020 | Ramaiah Institute of Technology</p>
-              <p className="mt-3">
-                Built a project-driven foundation across electronics and communications. Selected in the top 20 of
-                6000+ teams in a national hardware innovation challenge.
-              </p>
-              <p className="mt-3">
-                Awarded INR 0.5M product-development funding.
+              <p className="mt-1 text-sm text-[#526271]">Aug 2016 – Sept 2020 · Ramaiah Institute of Technology, Bangalore</p>
+              <p className="mt-4">
+                Four years in Bangalore. I didn&apos;t know exactly what I wanted to do with electronics for most of it,
+                but I stayed curious. We entered a national hardware innovation challenge and got selected in the
+                top 20 from over 6,000 teams — which came with INR 0.5M in product development funding.
+                That felt surreal at the time.
               </p>
             </motion.article>
             </div>
@@ -360,7 +389,8 @@ export default function Home() {
 
           <SectionBlock id="contact" title="Contact">
             <p className="text-lg">
-              Open to technical collaboration and embedded systems discussions—especially where reliability and scale matter.
+              If you&apos;re working on something where hardware constraints are the interesting part, I&apos;d like to hear about it.
+              I&apos;m also happy to talk about embedded systems, books, or why you should read The Undutchables if you live in the Netherlands.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <a className="group flex items-center gap-2 text-ink hover:text-sea transition-colors" href="mailto:abhigyaparashar22@gmail.com">
@@ -375,23 +405,6 @@ export default function Home() {
           </SectionBlock>
 
           <section>
-            <div className="border-b border-[#e4ddd3] pb-3 mb-6">
-              <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-[#8a9aa6]">At a glance</p>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-3">
-              <div>
-                <p className="font-display text-lg font-semibold text-ink">IEEE Published</p>
-                <p className="mt-1 text-sm text-[#546472]">PIMRC 2024 research publication on large-scale Zigbee monitoring.</p>
-              </div>
-              <div>
-                <p className="font-display text-lg font-semibold text-ink">Industry Scale</p>
-                <p className="mt-1 text-sm text-[#546472]">Firmware decisions validated against deployment constraints, not only lab conditions.</p>
-              </div>
-              <div>
-                <p className="font-display text-lg font-semibold text-ink">Cross-Functional</p>
-                <p className="mt-1 text-sm text-[#546472]">Experience across embedded architecture, validation pipelines, and field issue analysis.</p>
-              </div>
-            </div>
             <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#e4ddd3] pt-6 text-sm text-[#556573]">
               <p>Designed and engineered by Abhigya Parashar.</p>
               <div className="flex gap-4">

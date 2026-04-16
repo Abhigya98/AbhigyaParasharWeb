@@ -1,3 +1,7 @@
+import Link from "next/link";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 type SiteNavProps = {
   activeId: string;
 };
@@ -35,6 +39,14 @@ export function SiteNav({ activeId }: SiteNavProps) {
               </li>
             );
           })}
+          <li>
+            <Link
+              href={`${basePath}/for-fun`}
+              className="block whitespace-nowrap rounded-full border border-[#d9cfbf] px-4 py-2 text-sm text-[#425364] transition hover:bg-[#efe9dc]"
+            >
+              For Fun ↗
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
