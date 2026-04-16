@@ -13,6 +13,27 @@ type Post = {
   english: string;
 };
 
+type Book = {
+  id: number;
+  title: string;
+  author: string;
+  status: "reading" | "recently-finished";
+  thoughts: string;
+};
+
+type Recipe = {
+  id: number;
+  name: string;
+  description: string;
+  tags: string[];
+};
+
+type CoffeeNote = {
+  id: number;
+  title: string;
+  note: string;
+};
+
 // Add new Dutch writing entries here
 const posts: Post[] = [
   {
@@ -26,6 +47,43 @@ const posts: Post[] = [
   },
 ];
 
+// Add books here
+const books: Book[] = [
+  {
+    id: 1,
+    title: "Sapiens",
+    author: "Yuval Noah Harari",
+    status: "reading",
+    thoughts: "Coming soon.",
+  },
+  {
+    id: 2,
+    title: "The Undutchables",
+    author: "Colin White & Laurie Boucke",
+    status: "reading",
+    thoughts: "Coming soon.",
+  },
+];
+
+// Add recipes here
+const recipes: Recipe[] = [
+  {
+    id: 1,
+    name: "Placeholder recipe",
+    description: "Coming soon.",
+    tags: [],
+  },
+];
+
+// Add coffee notes here
+const coffeeNotes: CoffeeNote[] = [
+  {
+    id: 1,
+    title: "Placeholder",
+    note: "Coming soon.",
+  },
+];
+
 const cardVariants = {
   hidden: { opacity: 0, y: 16 },
   visible: (i: number) => ({
@@ -35,19 +93,35 @@ const cardVariants = {
   }),
 };
 
+function SectionDivider({ label, id }: { label: string; id?: string }) {
+  return (
+    <div id={id} className="mt-20 mb-8 flex items-center gap-4 scroll-mt-20">
+      <span className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-[#8a9aa6]">
+        {label}
+      </span>
+      <div className="flex-1 border-t border-[#e4ddd3]" />
+    </div>
+  );
+}
+
 export default function ForFun() {
   return (
     <main className="min-h-screen pb-24">
       {/* Minimal header */}
       <header className="sticky top-0 z-50 border-b border-[#e7e2d9] bg-[#fbfaf6]/95 backdrop-blur">
-        <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4 md:px-10">
+        <div className="mx-auto flex max-w-4xl items-center justify-between gap-6 px-6 py-4 md:px-10">
           <Link
             href={`${basePath}/`}
-            className="text-sm text-[#4e5b66] hover:text-[#c35b2d] transition-colors"
+            className="shrink-0 text-sm text-[#4e5b66] hover:text-[#c35b2d] transition-colors"
           >
             ← Abhigya Parashar
           </Link>
-          <span className="font-display text-sm font-semibold text-[#13222f]">For Fun</span>
+          <nav className="flex items-center gap-5 overflow-x-auto text-sm">
+            <a href="#dutch" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Nederlands</a>
+            <a href="#books" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Books</a>
+            <a href="#recipes" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Recipes</a>
+            <a href="#coffee" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Coffee</a>
+          </nav>
         </div>
       </header>
 
@@ -60,12 +134,8 @@ export default function ForFun() {
         >
           <h1 className="font-display text-4xl font-bold text-[#13222f] md:text-5xl">For Fun</h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#3d4d5b]">
-            A page for things that don&apos;t belong on a CV. Right now that means my Dutch writing practice —
-            short paragraphs, A1 level, not proofread. I&apos;m posting them here to keep myself accountable
-            and because mistakes are less embarrassing when you name them first.
-          </p>
-          <p className="mt-3 text-base text-[#6a7d8a]">
-            Each entry has the Dutch original and an English translation, in case you&apos;re curious what I was trying to say.
+            A page for things that don&apos;t belong on a CV — Dutch writing practice, books I&apos;m reading,
+            recipes I make, and thoughts on coffee.
           </p>
 
           {/* Spotify embed */}
@@ -81,17 +151,14 @@ export default function ForFun() {
               className="rounded-xl"
             />
           </div>
-
-          {/* Section divider */}
-          <div className="mt-12 mb-8 flex items-center gap-4">
-            <span className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-[#8a9aa6]">
-              Nederlands oefenen
-            </span>
-            <div className="flex-1 border-t border-[#e4ddd3]" />
-          </div>
         </motion.div>
 
-        {/* Posts */}
+        {/* ── Dutch writing ── */}
+        <SectionDivider label="Nederlands oefenen" id="dutch" />
+        <p className="mb-8 text-base text-[#6a7d8a]">
+          Short paragraphs, A2 level, not proofread. Posted here to keep myself accountable.
+          Each entry has the Dutch original and an English translation.
+        </p>
         <div className="space-y-16">
           {posts.map((post, i) => (
             <motion.article
@@ -106,18 +173,99 @@ export default function ForFun() {
                 <h2 className="font-display text-2xl text-[#13222f]">{post.title}</h2>
                 <span className="text-sm text-[#8a9aa6]">{post.date}</span>
               </div>
-
-              {/* Dutch */}
               <div className="rounded-lg border-l-2 border-[#2f7c85] pl-5">
                 <p className="text-xs font-semibold uppercase tracking-widest text-[#2f7c85] mb-2">Nederlands</p>
                 <p className="text-[17px] leading-8 text-[#1e3040] font-body">{post.dutch}</p>
               </div>
-
-              {/* English */}
               <div className="mt-5 pl-5">
                 <p className="text-xs font-semibold uppercase tracking-widest text-[#8a9aa6] mb-2">English</p>
                 <p className="text-[16px] leading-7 text-[#6a7d8a] italic">{post.english}</p>
               </div>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* ── Books ── */}
+        <SectionDivider label="What I'm reading" id="books" />
+        <p className="mb-8 text-base text-[#6a7d8a]">
+          Reviews and notes on books I&apos;m currently reading or recently finished.
+        </p>
+        <div className="space-y-8">
+          {books.map((book, i) => (
+            <motion.article
+              key={book.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={i}
+              variants={cardVariants}
+              className="border-b border-[#e4ddd3] pb-8 last:border-0"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="font-display text-xl text-[#13222f]">{book.title}</h2>
+                  <p className="text-sm text-[#6a7d8a]">{book.author}</p>
+                </div>
+                <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium ${
+                  book.status === "reading"
+                    ? "bg-[#e8f4f5] text-[#2f7c85]"
+                    : "bg-[#f0ece4] text-[#7a6a58]"
+                }`}>
+                  {book.status === "reading" ? "Reading now" : "Recently finished"}
+                </span>
+              </div>
+              <p className="mt-3 text-[16px] leading-7 text-[#3d4d5b]">{book.thoughts}</p>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* ── Recipes ── */}
+        <SectionDivider label="Recipes" id="recipes" />
+        <p className="mb-8 text-base text-[#6a7d8a]">
+          Things I cook. No exact measurements, no food photography — just notes on what works.
+        </p>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {recipes.map((recipe, i) => (
+            <motion.article
+              key={recipe.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={i}
+              variants={cardVariants}
+              className="rounded-lg border border-[#e4ddd3] p-5"
+            >
+              <h2 className="font-display text-lg text-[#13222f]">{recipe.name}</h2>
+              <p className="mt-2 text-[15px] leading-6 text-[#3d4d5b]">{recipe.description}</p>
+              {recipe.tags.length > 0 && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {recipe.tags.map((tag) => (
+                    <span key={tag} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#7a6a58]">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </motion.article>
+          ))}
+        </div>
+
+        {/* ── Coffee ── */}
+        <SectionDivider label="Coffee" id="coffee" />
+        <p className="mb-8 text-base text-[#6a7d8a]">
+          Beans, brews, and opinions. I take it seriously but not that seriously.
+        </p>
+        <div className="space-y-8">
+          {coffeeNotes.map((entry, i) => (
+            <motion.article
+              key={entry.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={i}
+              variants={cardVariants}
+              className="border-b border-[#e4ddd3] pb-8 last:border-0"
+            >
+              <h2 className="font-display text-xl text-[#13222f]">{entry.title}</h2>
+              <p className="mt-2 text-[16px] leading-7 text-[#3d4d5b]">{entry.note}</p>
             </motion.article>
           ))}
         </div>
@@ -130,3 +278,4 @@ export default function ForFun() {
     </main>
   );
 }
+

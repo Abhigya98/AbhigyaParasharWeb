@@ -162,7 +162,7 @@ export default function Home() {
                     At 27, I am fulfilling my long awaited dream of swimming, haha.
                     That journey led to a conversation on{" "}
                     <a href="https://open.spotify.com/episode/30cWGV56Dqnd4dIhs29Ojp?si=u4ogZMUSQ9i6VYEL50pGUw" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">Brainport Radio</a>
-                    {" "} with my coach ({" "}<a href="https://www.linkedin.com/posts/meagin-van-der-westhuizen-b875404b_the-courage-to-dive-in-learning-to-swim-activity-7446908227541291008-rRfa?utm_source=share&utm_medium=member_desktop&rcm=ACoAACYEqj8BU57Grn_Uq88VGlcRlWXKnrS5Lug" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">LinkedIn</a>).
+                    {" "} with my coach (<a href="https://www.linkedin.com/posts/meagin-van-der-westhuizen-b875404b_the-courage-to-dive-in-learning-to-swim-activity-7446908227541291008-rRfa?utm_source=share&utm_medium=member_desktop&rcm=ACoAACYEqj8BU57Grn_Uq88VGlcRlWXKnrS5Lug" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">LinkedIn</a>).
                   </p>
                 </div>
               </div>
@@ -175,6 +175,7 @@ export default function Home() {
                   <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">Zigbee + BLE</span>
                   <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">RTOS</span>
                   <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">Field Reliability</span>
+                  <span className="rounded-full border border-[#d9cfbf] bg-[#faf7f1] px-4 py-2 text-sm text-[#495a68]">Over-the-Air Upgrades</span>
                 </div>
               </div>
 
@@ -213,24 +214,82 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={0}
             >
-              <p className="flex items-center gap-2 font-display text-xl text-ink">
-                <BriefcaseBusiness size={20} /> Embedded Software Engineer, Signify
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="flex items-center gap-2 font-display text-xl text-ink">
+                    <BriefcaseBusiness size={20} /> Embedded Software Engineer, Signify
+                  </p>
+                  <p className="mt-1 text-sm text-[#526271]">Feb 2023 – Present · Eindhoven, Netherlands</p>
+                </div>
+                <a href="https://www.signify.com/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/SignifyLogo.webp`}
+                    alt="Signify"
+                    width={80}
+                    height={32}
+                    className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              </div>
+              <p className="mt-3 text-[#3d4d5b]">
+                Developing firmware in C for EFR32-based sensor nodes in indoor smart lighting systems — Zigbee mesh with BLE connectivity, running on Micrium OS III. Some key contributions include:
               </p>
-              <p className="mt-1 text-sm text-[#526271]">Feb 2023 - Present | Eindhoven, Netherlands</p>
-              <p className="mt-4">
-                I joined Signify in February 2023, just after finishing a thesis that was done here too. The first months
-                were steep — a new codebase, Micrium OS, and the particular humility of reading someone else&apos;s firmware.
+              <ul className="mt-3 space-y-2 text-[#3d4d5b] text-[15px] leading-relaxed">
+                <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" /><span>BLE OTA optimisation that cut update time for a 200-device network from 2.5–4 hours (Zigbee OTA) to ~25 minutes — live in production.</span></li>
+                <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" /><span>Platform unification across product lines, including modular component design and backward compatibility.</span></li>
+                <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" /><span>Post-OTA migration handling in devices after firmware upgrades to preserve crucial data.</span></li>
+              </ul>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["C", "Micrium OS III", "BLE", "Zigbee", "Python", "C#", "BDD", "Jenkins"].map((tech) => (
+                  <span key={tech} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#485967]">{tech}</span>
+                ))}
+              </div>
+              <a
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
+              >
+                Read more →
+              </a>
+            </motion.article>
+            <motion.article
+              className="timeline-item"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={1}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="flex items-center gap-2 font-display text-xl text-ink">
+                    <BriefcaseBusiness size={20} /> Software Engineer, KPIT Technologies
+                  </p>
+                  <p className="mt-1 text-sm text-[#526271]">Apr 2021 – Sept 2021 · Bangalore, India</p>
+                </div>
+                <a href="https://www.kpit.com/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/kpitLogo.jpg`}
+                    alt="KPIT Technologies"
+                    width={80}
+                    height={32}
+                    className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              </div>
+              <p className="mt-3 text-[#3d4d5b]">
+                Developed and automated test environments for a cloud-based application. Gained exposure to automotive systems and communication protocols.
               </p>
-              <p className="mt-3">
-                The thing I&apos;m most proud of is an OTA update flow I rebuilt for BLE. Before, updating 200 devices
-                took anywhere from 2.5 to 4 hours — mostly because the scheduling logic was fighting itself.
-                I redesigned it and brought that down to about 25 minutes. Nobody announces that at an all-hands,
-                but it matters to the people who maintain those deployments.
-              </p>
-              <p className="mt-3">
-                I also work on platform unification — products that evolved separately and now need to share more.
-                That means touching code that was never meant to be touched again, which is most of the fun.
-              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {["Python", "pytest", "Automotive"].map((tech) => (
+                  <span key={tech} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#485967]">{tech}</span>
+                ))}
+              </div>
+              <a
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
+              >
+                Read more →
+              </a>
             </motion.article>
             </div>
           </SectionBlock>
@@ -245,16 +304,38 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={0}
             >
-              <h3 className="font-display text-xl text-ink">Research Intern, ZEN Lab — IISc</h3>
-              <p className="text-sm text-[#526271]">Indian Institute of Science, Bangalore</p>
-              <p className="mt-3">
-                My first real research environment. I was working on TSCH — time-slotted channel hopping over 802.15.4 —
-                the protocol that makes low-power mesh networks actually usable. It&apos;s fussy. Timing-sensitive code that
-                doesn&apos;t fail loudly.
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-display text-xl text-ink">Embedded Software Intern — Signify</h3>
+                  <p className="text-sm text-[#526271]">Feb 2023 – Aug 2023 · Eindhoven, Netherlands</p>
+                </div>
+                <a href="https://www.signify.com/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/SignifyLogo.webp`}
+                    alt="Signify"
+                    width={80}
+                    height={32}
+                    className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              </div>
+              <p className="mt-2 text-[#3d4d5b]">
+                Built a network performance monitoring framework for large-scale Zigbee deployments — automated &ldquo;health reports&rdquo; used for quality deployement of indoor light networks. 
+                Presented the research at the{" "}
+                <a href="https://ieeexplore.ieee.org/abstract/document/10817217" target="_blank" rel="noreferrer" className="text-[#2f7c85] hover:underline underline-offset-2">IEEE PIMRC International Conference</a>
+                {" "}in Valencia, Spain. Click on read more to know about the research and the conference.
               </p>
-              <p className="mt-3">
-                That internship taught me to read datasheets more carefully than I read almost anything else.
-              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {["C#", "Zigbee", "BLE", "RTOS", "Python"].map((tech) => (
+                  <span key={tech} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#485967]">{tech}</span>
+                ))}
+              </div>
+              <a
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
+              >
+                Read more →
+              </a>
             </motion.article>
             <motion.article
               className="timeline-item"
@@ -264,16 +345,69 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={1}
             >
-              <h3 className="font-display text-xl text-ink">Embedded Software Engineering Intern — Smart Health Global</h3>
-              <p className="text-sm text-[#526271]">Bangalore</p>
-              <p className="mt-3">
-                A smaller company, more prototyping, less rigour. I built image-processing work for assistive systems —
-                new territory for me at the time.
-              </p>
-              <p className="mt-3">
-                The most useful thing I took from it was learning to make something work with what you have,
-                not what you wish you had.
-              </p>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-display text-xl text-ink">Embedded Software Intern — Smart Health Global</h3>
+                  <p className="text-sm text-[#526271]">Jan 2020 – Jul 2020 · Bangalore, India</p>
+                </div>
+                <a href="https://shgtechnologies.com/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/SHGLogo.jpg`}
+                    alt="Smart Health Global"
+                    width={80}
+                    height={32}
+                    className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              </div>
+              <p className="mt-2 text-[#3d4d5b]">Built smart vision glasses for the visually impaired and a portable vein finder for elderly care — image processing on embedded devices at a 15-person start-up doing impactful work in underserved Indian communities.</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {["C", "Python", "OpenCV", "Raspberry Pi"].map((tech) => (
+                  <span key={tech} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#485967]">{tech}</span>
+                ))}
+              </div>
+              <a
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
+              >
+                Read more →
+              </a>
+            </motion.article>
+            <motion.article
+              className="timeline-item"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={2}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-display text-xl text-ink">Research Intern — DESE, IISc</h3>
+                  <p className="text-sm text-[#526271]">Jun 2019 – Sept 2019 · Bangalore, India</p>
+                </div>
+                <a href="https://dese.iisc.ac.in/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/DESELogo.png`}
+                    alt="IISc DESE"
+                    width={80}
+                    height={32}
+                    className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              </div>
+              <p className="mt-2 text-[#3d4d5b]">Implemented TSCH (Time Synchronized Channel Hopping) over IEEE 802.15.4 under Dr. T.V. Prabhakar. Built communication logic for robust trans-reception among constrained nodes in low-power mesh networks.</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {["C", "802.15.4", "TSCH", "WSN"].map((tech) => (
+                  <span key={tech} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#485967]">{tech}</span>
+                ))}
+              </div>
+              <a
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
+              >
+                Read more →
+              </a>
             </motion.article>
             </div>
           </SectionBlock>
