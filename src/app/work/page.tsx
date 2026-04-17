@@ -197,66 +197,6 @@ export default function WorkPage() {
             </div>
           </motion.article>
 
-          {/* KPIT */}
-          <motion.article
-            className="timeline-item"
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            custom={1}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2">
-                  <BriefcaseBusiness size={18} className="text-[#2f7c85]" />
-                  <h2 className="font-display text-2xl text-[#13222f]">Software Engineer</h2>
-                </div>
-                <p className="mt-1 font-medium text-[#3d4d5b]">KPIT Technologies</p>
-                <p className="mt-0.5 text-sm text-[#7a8a96]">Apr 2021 – Sept 2021 · Bangalore, India</p>
-              </div>
-              <a href="https://www.kpit.com/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
-                <Image
-                  src={`${basePath}/img/kpitLogo.jpg`}
-                  alt="KPIT Technologies"
-                  width={96}
-                  height={40}
-                  className="object-contain opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </a>
-            </div>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["Python", "pytest", "unittest", "Automotive"].map((tech) => (
-                <span key={tech} className="rounded-full bg-[#e8f4f5] px-3 py-1 text-xs font-medium text-[#2f7c85]">{tech}</span>
-              ))}
-            </div>
-
-            <p className="mt-5 text-[16px] leading-7 text-[#3d4d5b]">
-              Developed and automated test environments for a cloud-based application using pytest and unittest.
-              Gained exposure to automotive systems, including vehicle electronics and communication protocols.
-            </p>
-
-            <details ref={reflectionRef} className="mt-3">
-              <summary className="cursor-pointer text-[14px] italic text-[#6a7d8a] hover:text-[#c35b2d] transition-colors select-none">
-                My key reflections on this project
-              </summary>
-              <blockquote className="mt-2 border-l-2 border-[#d9cfbf] pl-4 text-[14px] italic leading-6 text-[#6a7d8a]">
-                &ldquo;My first job out of my bachelor&apos;s — and COVID hit at the same time.
-                A few months in, KPIT pushed new joiners&apos; start dates indefinitely.
-                Most companies were laying off senior people, let alone hiring fresh graduates.
-                Instead of onboarding, we were put through an intensive &lsquo;PACE&rsquo; training on automotive technology —
-                car systems, engines, CAN protocol — which turned out to be genuinely valuable.
-                But I was disheartened. This wasn&apos;t how I&apos;d imagined the start of my career.
-                I wasn&apos;t sure I&apos;d have a job anytime soon, so alongside the training I started
-                exploring master&apos;s programmes and applied for embedded systems in Europe.
-                Eventually both came through at once — my KPIT offer letter and a fully funded
-                master&apos;s in Europe. I chose the latter. My time at KPIT was short but it taught me
-                corporate culture and gave me a foundation in automotive systems that I still draw on.&rdquo;
-              </blockquote>
-            </details>
-          </motion.article>
-
           {/* Signify Intern */}
           <motion.article
             className="timeline-item"
@@ -264,7 +204,7 @@ export default function WorkPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            custom={2}
+            custom={1}
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -325,6 +265,66 @@ export default function WorkPage() {
                 </p>
               </div>
             </div>
+          </motion.article>
+
+          {/* KPIT */}
+          <motion.article
+            className="timeline-item"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            custom={2}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <BriefcaseBusiness size={18} className="text-[#2f7c85]" />
+                  <h2 className="font-display text-2xl text-[#13222f]">Software Engineer</h2>
+                </div>
+                <p className="mt-1 font-medium text-[#3d4d5b]">KPIT Technologies</p>
+                <p className="mt-0.5 text-sm text-[#7a8a96]">Apr 2021 – Sept 2021 · Bangalore, India</p>
+              </div>
+              <a href="https://www.kpit.com/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                <Image
+                  src={`${basePath}/img/kpitLogo.jpg`}
+                  alt="KPIT Technologies"
+                  width={96}
+                  height={40}
+                  className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </a>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["Python", "pytest", "unittest", "Automotive"].map((tech) => (
+                <span key={tech} className="rounded-full bg-[#e8f4f5] px-3 py-1 text-xs font-medium text-[#2f7c85]">{tech}</span>
+              ))}
+            </div>
+
+            <p className="mt-5 text-[16px] leading-7 text-[#3d4d5b]">
+              Developed and automated test environments for a cloud-based application using pytest and unittest.
+              Gained exposure to automotive systems, including vehicle electronics and communication protocols.
+            </p>
+
+            <details ref={reflectionRef} className="mt-3">
+              <summary className="cursor-pointer text-[14px] italic text-[#6a7d8a] hover:text-[#c35b2d] transition-colors select-none">
+                My key reflections on this project
+              </summary>
+              <blockquote className="mt-2 border-l-2 border-[#d9cfbf] pl-4 text-[14px] italic leading-6 text-[#6a7d8a]">
+                &ldquo;My first job out of my bachelor&apos;s — and COVID hit at the same time.
+                A few months in, KPIT pushed new joiners&apos; start dates indefinitely.
+                Most companies were laying off senior people, let alone hiring fresh graduates.
+                Instead of onboarding, we were put through an intensive &lsquo;PACE&rsquo; training on automotive technology —
+                car systems, engines, CAN protocol — which turned out to be genuinely valuable.
+                But I was disheartened. This wasn&apos;t how I&apos;d imagined the start of my career.
+                I wasn&apos;t sure I&apos;d have a job anytime soon, so alongside the training I started
+                exploring master&apos;s programmes and applied for embedded systems in Europe.
+                Eventually both came through at once — my KPIT offer letter and a fully funded
+                master&apos;s in Europe. I chose the latter. My time at KPIT was short but it taught me
+                corporate culture and gave me a foundation in automotive systems that I still draw on.&rdquo;
+              </blockquote>
+            </details>
           </motion.article>
 
           {/* Smart Health Global */}

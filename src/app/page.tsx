@@ -422,21 +422,76 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={0}
             >
-              <p className="flex items-center gap-2 font-display text-xl text-ink">
-                <GraduationCap size={20} /> MSc Embedded Systems, EIT Digital
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="flex items-center gap-2 font-display text-xl text-ink">
+                    <GraduationCap size={20} /> MSc Embedded Systems, EIT Digital
+                  </p>
+                  <p className="mt-1 text-sm text-[#526271]">Oct 2021 – Sept 2023 · TU Eindhoven + TU Berlin</p>
+                </div>
+                <div className="flex items-center gap-3 mt-1 shrink-0">
+                  <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/TU_eLogo.png`}
+                      alt="TU Eindhoven"
+                      width={80}
+                      height={36}
+                      className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  </a>
+                  <a href="https://www.tu.berlin/en/" target="_blank" rel="noreferrer">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/TU_berlinLogo.png`}
+                      alt="TU Berlin"
+                      width={80}
+                      height={45}
+                      className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  </a>
+                  <a href="https://masterschool.eitdigital.eu/" target="_blank" rel="noreferrer">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/EIT-Digital.webp`}
+                      alt="EIT Digital"
+                      width={80}
+                      height={50}
+                      className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p className="mt-3 text-[15px] leading-7 text-[#3d4d5b]">
+                <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer" className="font-medium text-[#2f7c85] hover:underline underline-offset-2">Eindhoven University of Technology</a> (Netherlands)
+                {" "}and{" "}
+                <a href="https://www.tu.berlin/en/" target="_blank" rel="noreferrer" className="font-medium text-[#2f7c85] hover:underline underline-offset-2">Technische Universität Berlin</a> (Germany).
+                Specialisation in Networked Embedded Systems.
               </p>
-              <p className="mt-1 text-sm text-[#526271]">Oct 2021 – Sept 2023 · TU Eindhoven + TU Berlin</p>
-              <p className="mt-4">
-                EIT Digital splits you across two universities in two countries. I was in Eindhoven and Berlin.
-                It&apos;s a funded programme and the students come from everywhere, which makes it interesting
-                in ways the curriculum doesn&apos;t advertise.
-              </p>
-              <p className="mt-3">
-                My thesis was joint with TU/e and Signify — monitoring large-scale Zigbee deployments.
-                It&apos;s how I ended up at Signify; they offered me a job before I&apos;d finished writing.
-                I got 8.95/10, which I mention only because it took a genuinely long time to get the
-                network to do what I needed it to do.
-              </p>
+
+              <ul className="mt-3 space-y-1 text-[15px] leading-7 text-[#3d4d5b] list-disc pl-5">
+                <li>Merit-based <span className="font-medium">full scholarship</span> recipient (EIT Digital), focused on embedded systems with an entrepreneurship and innovation track.</li>
+                <li>Thesis (TU/e and Signify): Performance monitoring and examination of Zigbee networks (Grade: <span className="font-medium">8.95/10</span>).</li>
+                <li>Placed <span className="font-medium">3rd</span> in the Innovation and Entrepreneurship Challenge at Aalto University Summer School, Helsinki (Aug 2022).</li>
+              </ul>
+
+              <details className="mt-4">
+                <summary className="cursor-pointer text-[14px] font-medium text-[#2f7c85] hover:text-[#c35b2d] transition-colors select-none">
+                  Details
+                </summary>
+                <div className="mt-3 rounded-lg bg-[#f4f1ec] px-5 py-4 text-[13px] leading-6 text-[#3d4d5b] shadow-sm">
+                  <p className="font-medium text-[#13222f] mb-2">Studies</p>
+                  <ul className="space-y-2 list-disc pl-5">
+                    <li>EIT Digital is a rigorous programme that spans two countries, with a summer school in a third. Alongside the technical curriculum, we had courses on entrepreneurship, building a start-up, and sustainability. Nearly every course carried a business dimension — pitching ideas, presenting solutions, and collaborative brainstorming were the norm.</li>
+                    <li>On the technical side, I took courses in Compiler Design, Computer Architecture, System Validation, Network Design, Distributed Systems, IoT Fundamentals, Algorithms and Data Structures, among others.</li>
+                  </ul>
+
+                  <p className="font-medium text-[#13222f] mt-4 mb-2">Personal experience</p>
+                  <ul className="space-y-2 list-disc pl-5">
+                    <li>As an international student from a very different culture and background, assimilating was not straightforward. Both Eindhoven and Berlin are notorious for their housing crises — finding a place from outside the city is genuinely difficult, riddled with scams, and prohibitively expensive. Add to that a completely different academic system, unfamiliar exam formats, and higher expectations of independent output.</li>
+                    <li>It was an unfamiliar arena, unlike anything I had dealt with before. I had to learn how to navigate bureaucracy, advocate for myself, and build a support system from scratch — all while keeping up with a demanding academic schedule. It was overwhelming at times, but it forced me to grow in ways I hadn&apos;t anticipated.</li>
+                    <li>Just as you begin to settle in and build a social life in one city, the programme expects you to uproot and start over in another. It&apos;s disorienting, but it forces adaptability and really pushes you out of your comfort zone.</li>
+                    <li>Despite the struggles, it was deeply enriching. Meeting people from all over the world genuinely broadens how you think. My technical, social, and networking skills grew rapidly — and today I see the payoff in how quickly I connect with people and how willingly I take on the unfamiliar.</li>
+                  </ul>
+                </div>
+              </details>
             </motion.article>
             <motion.article
               className="timeline-item"
@@ -446,14 +501,63 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={1}
             >
-              <h3 className="font-display text-xl text-ink">BTech Electronics and Telecommunication</h3>
-              <p className="mt-1 text-sm text-[#526271]">Aug 2016 – Sept 2020 · Ramaiah Institute of Technology, Bangalore</p>
-              <p className="mt-4">
-                Four years in Bangalore. I didn&apos;t know exactly what I wanted to do with electronics for most of it,
-                but I stayed curious. We entered a national hardware innovation challenge and got selected in the
-                top 20 from over 6,000 teams — which came with INR 0.5M in product development funding.
-                That felt surreal at the time.
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-display text-xl text-ink">BTech Electronics and Telecommunication</h3>
+                  <p className="mt-1 text-sm text-[#526271]">Aug 2016 – Sept 2020 · Ramaiah Institute of Technology, Bangalore</p>
+                </div>
+                <a href="https://www.msrit.edu/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/RIT_logo.webp`}
+                    alt="Ramaiah Institute of Technology"
+                    width={150}
+                    height={50}
+                    className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              </div>
+              <p className="mt-3 text-[15px] leading-7 text-[#3d4d5b]">
+                Built a strong foundation in electronics, communication systems, and embedded development through project-driven coursework.
               </p>
+
+              <ul className="mt-3 space-y-1 text-[15px] leading-7 text-[#3d4d5b] list-disc pl-5">
+                <li>Developed a safety hardware product using Texas Instruments MCUs and sensors; selected among the <span className="font-medium">top 20 of 6,000+ teams</span> nationwide and awarded <span className="font-medium">&#8377;0.5M</span> funding (Texas Instruments, Govt. of India, IIM Bangalore). Published at{" "}
+                  <a href="https://ieeexplore.ieee.org/document/9198395" target="_blank" rel="noreferrer" className="text-[#2f7c85] hover:underline underline-offset-2">IEEE CONECCT 2020</a>.
+                </li>
+                <li>Bachelor&apos;s thesis: Detection and mitigation of DDoS attacks in large-scale networks.</li>
+                <li>GPA: <span className="font-medium">8.96/10</span></li>
+              </ul>
+
+              <details className="mt-4">
+                <summary className="cursor-pointer text-[14px] font-medium text-[#2f7c85] hover:text-[#c35b2d] transition-colors select-none">
+                  Details
+                </summary>
+                <div className="mt-3 rounded-lg bg-[#f4f1ec] px-5 py-4 text-[13px] leading-6 text-[#3d4d5b] shadow-sm">
+                  <p className="font-medium text-[#13222f] mb-2">Studies</p>
+                  <ul className="space-y-2 list-disc pl-5">
+                    <li>From the beginning I was drawn to electronics, IoT, and embedded systems. The coursework was broad and technically demanding — Digital Signal Processing, Control Systems, Digital Logic Design (logic gates, adders, Verilog), Signals and Systems, Analog Circuit Design, Machine Learning, Antennas, Embedded Systems, Microelectronics, Linear Programming, Data Structures in C, Network Analysis, Computer Communication Networks, and Wireless Networks and Protocols.</li>
+                    <li>The studies were manageable and I maintained a respectable GPA of 8.96/10, but most of my real learning happened outside the classroom.</li>
+                  </ul>
+
+                  <p className="font-medium text-[#13222f] mt-4 mb-2">Personal</p>
+                  <ul className="space-y-2 list-disc pl-5">
+                    <li>I was an active participant in hackathons and ideathons throughout my bachelors. In March 2019, I won the university-wide Ideathon for the most innovative project with AGAAHI: A smart helmet. With the same idea, my team and I entered <span className="font-medium">IICDC 2019</span> (India Innovation Challenge Design Contest) — a nationwide competition organised by Texas Instruments, IIM Bangalore, and the Government of India.</li>
+                    <li>The process taught us patent filing, pitching, documentation, and co-founder collaboration — and it&apos;s where I first got interested in entrepreneurship. We made it to the final round and received a gold certificate, but were ultimately not selected for incubation as the product depended heavily on stricter government regulation — something we couldn&apos;t influence or predict the timeline of.</li>
+                    <li>This competition directly influenced my decision to apply for EIT Digital — a programme that combined business and entrepreneurship with a strong technical foundation in my field of choice.</li>
+                  </ul>
+
+                  <p className="font-medium text-[#13222f] mt-4 mb-2">AGAAHI — A Smart Helmet for Two-Wheeler Safety</p>
+                  <ul className="space-y-2 list-disc pl-5">
+                    <li><span className="italic">AGAAHI</span> is a Hindi word meaning &ldquo;to alert someone of danger.&rdquo; The project was inspired by the same principle.</li>
+                    <li>Road safety is a critical concern in India — over 150,000 people die in road accidents each year, with two-wheeler riders being the most vulnerable. A significant number of these fatalities involve drunk driving or not following traffic rules.</li>
+                    <li>We built <span className="font-medium">AGAAHI</span>: a complete safety solution for two-wheeler riders. It consisted of a smart helmet and a portable device that integrates seamlessly with the vehicle. The device would prevent the bike from starting if the rider wasn&apos;t wearing the helmet. The helmet could detect if the rider was too drunk or too drowsy to drive safely. In case of an accident, it would automatically activate a safety system — notifying emergency contacts with the rider&apos;s location, and alerting the nearest police station and hospital.</li>
+                    <li>The project was well received because it was tested in real conditions, integrated into an actual two-wheeler. We were among the <span className="font-medium">top 20 teams across 6,000+</span> that received &#8377;0.5M in funding to take the prototype further.</li>
+                    <li>My team and I brought the project to a logical conclusion by writing a paper, which was accepted at the{" "}
+                      <a href="https://ieeexplore.ieee.org/document/9198395" target="_blank" rel="noreferrer" className="text-[#2f7c85] hover:underline underline-offset-2">IEEE CONECCT 2020 conference</a>.
+                    </li>
+                  </ul>
+                </div>
+              </details>
             </motion.article>
             </div>
           </SectionBlock>
