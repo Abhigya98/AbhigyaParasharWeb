@@ -10,6 +10,7 @@ const items = [
   { id: "work", label: "Work" },
   { id: "internships", label: "Internships" },
   { id: "education", label: "Education" },
+  { id: "projects", label: "Projects" },
   { id: "publications", label: "Publications" },
   { id: "contact", label: "Contact" },
 ];

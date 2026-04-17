@@ -14,15 +14,53 @@ const lora = Lora({
   display: "swap",
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://abhigya98.github.io${basePath}`),
   title: "Abhigya Parashar | Embedded Systems Engineer",
   description:
-    "Interactive portfolio of Abhigya Parashar, focused on embedded firmware, wireless systems, and practical engineering impact.",
+    "Portfolio of Abhigya Parashar — embedded firmware, Zigbee/BLE wireless systems, and practical engineering at Signify. MSc Embedded Systems (TU Eindhoven + TU Berlin).",
+  keywords: [
+    "Abhigya Parashar",
+    "Embedded Systems",
+    "Firmware Engineer",
+    "Zigbee",
+    "BLE",
+    "IoT",
+    "Signify",
+    "TU Eindhoven",
+    "TU Berlin",
+    "EIT Digital",
+  ],
+  authors: [{ name: "Abhigya Parashar" }],
   openGraph: {
     title: "Abhigya Parashar | Embedded Systems Engineer",
     description:
-      "Embedded systems portfolio with work, internships, education, and publications.",
+      "Embedded firmware, Zigbee/BLE wireless systems, and practical engineering impact. Work, internships, education, projects, and publications.",
     type: "website",
+    url: `https://abhigya98.github.io${basePath}`,
+    siteName: "Abhigya Parashar",
+    images: [
+      {
+        url: `/img/Image_me.jfif`,
+        width: 600,
+        height: 600,
+        alt: "Abhigya Parashar",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abhigya Parashar | Embedded Systems Engineer",
+    description:
+      "Embedded firmware, Zigbee/BLE wireless systems, and practical engineering impact.",
+    images: [`/img/Image_me.jfif`],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

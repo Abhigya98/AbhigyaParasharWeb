@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, GraduationCap, BriefcaseBusiness, BookOpen } from "lucide-react";
+import { Mail, Github, Linkedin, GraduationCap, BriefcaseBusiness, BookOpen, ChevronDown } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { SectionBlock } from "@/components/SectionBlock";
 import { SiteNav } from "@/components/SiteNav";
@@ -18,43 +18,80 @@ const cardVariants = {
   }),
 };
 
-const projectFilters = ["All", "Embedded", "Research", "Automation"] as const;
+const projectFilters = ["All", "Embedded", "Research", "Hardware", "Automation"] as const;
 type ProjectFilter = (typeof projectFilters)[number];
 
 const projectCards = [
   {
+    title: "ESP32 Audio Visualiser",
+    type: "Embedded",
+    summary: "A home audio visualiser using an ESP32, MAX9814 microphone, and an LED matrix. Captures ambient sound, runs FFT to extract frequency bands, and drives real-time LED patterns. Still in progress — hard to stop tinkering with it.",
+    stack: ["ESP32", "C", "FFT", "LED Matrix"],
+    link: "https://github.com/Abhigya98/AudioVisualiser",
+    linkType: "external" as const,
+  },
+  {
+    title: "AGAAHI — Smart Helmet",
+    type: "Hardware",
+    summary: "A complete two-wheeler safety system: smart helmet with alcohol and drowsiness detection, GPS/GSM accident alerts, and ignition lock. Built with TI CC3200 MCUs and sensors. Top 20 of 6,000+ teams nationwide (IICDC 2019).",
+    stack: ["C", "TI CC3200", "GPS", "GSM", "Sensors"],
+    link: "https://github.com/Abhigya98/Aagaahi-A-smart-helmet",
+    linkType: "external" as const,
+  },
+  {
+    title: "DDoS Attack Detection & Mitigation",
+    type: "Research",
+    summary: "Bachelor's thesis. Developed an algorithm to detect DDoS attacks across all TCP flag flood variants, and a mitigation system that blocks malicious IPs in real time to maintain service availability.",
+    stack: ["Python", "Networking", "Security"],
+    link: "https://github.com/Abhigya98/Smart-Detection-and-handling-of-DDoS-attack",
+    linkType: "external" as const,
+  },
+  {
     title: "BLE OTA Deployment Optimizer",
     type: "Embedded",
-    summary: "The update problem that was actually a scheduling problem. Redesigned the BLE OTA flow for 200-device deployments — brought update time from 2.5–4 hours down to about 25 minutes.",
+    summary: "The update problem that was actually a scheduling problem. Redesigned the BLE OTA flow for 200-device deployments — brought update time from 2.5\u20134 hours down to about 25 minutes.",
     stack: ["C", "BLE", "Zigbee", "RTOS"],
+    link: "/work",
+    linkType: "internal" as const,
   },
   {
     title: "Network Performance Monitoring Framework",
     type: "Research",
-    summary: "Part of my thesis work. Built a framework to actually see what a large Zigbee network is doing — because intuition alone doesn't scale to hundreds of nodes.",
+    summary: "Part of my thesis work. Built a framework to quantitatively measure what a large Zigbee network is doing — reliability, robustness, and responsiveness — because intuition alone doesn\u2019t scale to hundreds of nodes.",
     stack: ["Python", "Validation", "WSN", "Analytics"],
+    link: "/work",
+    linkType: "internal" as const,
+  },
+  {
+    title: "Platform Unification",
+    type: "Embedded",
+    summary: "Merged two separate firmware stacks (Zigbee and BLE) into a single unified platform, enabling one codebase to support both protocol families. Involved restructuring build systems, resolving hardware abstraction conflicts, and ensuring zero regression across 50+ product variants.",
+    stack: ["C", "Zigbee", "BLE", "RTOS", "Build Systems"],
+    link: "/work",
+    linkType: "internal" as const,
   },
   {
     title: "BDD Validation Pipeline",
     type: "Automation",
     summary: "I got tired of catching regressions manually. A BDD-style test pipeline in Python that made releases less stressful for everyone involved.",
     stack: ["Python", "BDD", "C#", "CI"],
-  },
-  {
-    title: "ESP32 Audio Visualiser",
-    type: "Embedded",
-    summary: "A hobby project, still in progress. An audio visualiser driven by an ESP32. I find it hard to stop tinkering with it, which is probably a good sign.",
-    stack: ["ESP32", "C", "Electronics"],
+    link: "/work",
+    linkType: "internal" as const,
   },
 ] as const;
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("work");
   const [selectedFilter, setSelectedFilter] = useState<ProjectFilter>("All");
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const filteredProjects = useMemo(() => {
-    if (selectedFilter === "All") return projectCards;
-    return projectCards.filter((card) => card.type === selectedFilter);
+    const filtered = selectedFilter === "All" ? projectCards : projectCards.filter((card) => card.type === selectedFilter);
+    return showAllProjects ? filtered : filtered.slice(0, 4);
+  }, [selectedFilter, showAllProjects]);
+
+  const totalFilteredCount = useMemo(() => {
+    return selectedFilter === "All" ? projectCards.length : projectCards.filter((card) => card.type === selectedFilter).length;
   }, [selectedFilter]);
 
   useEffect(() => {
@@ -96,7 +133,7 @@ export default function Home() {
             {/* Left: Profile photo with minimal styling */}
             <div className="relative md:col-span-1">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/Me.jpeg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/Image_me.jfif`}
                 alt="Abhigya Parashar"
                 width={280}
                 height={360}
@@ -354,7 +391,7 @@ export default function Home() {
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/SHGLogo.jpg`}
                     alt="Smart Health Global"
-                    width={80}
+                    width={120}
                     height={32}
                     className="object-contain opacity-70 hover:opacity-100 transition-opacity"
                   />
@@ -390,8 +427,8 @@ export default function Home() {
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/DESELogo.png`}
                     alt="IISc DESE"
-                    width={80}
-                    height={32}
+                    width={170}
+                    height={80}
                     className="object-contain opacity-70 hover:opacity-100 transition-opacity"
                   />
                 </a>
@@ -422,20 +459,20 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={0}
             >
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                 <div>
                   <p className="flex items-center gap-2 font-display text-xl text-ink">
                     <GraduationCap size={20} /> MSc Embedded Systems, EIT Digital
                   </p>
                   <p className="mt-1 text-sm text-[#526271]">Oct 2021 – Sept 2023 · TU Eindhoven + TU Berlin</p>
                 </div>
-                <div className="flex items-center gap-3 mt-1 shrink-0">
+                <div className="flex items-center gap-2 shrink-0">
                   <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/TU_eLogo.png`}
                       alt="TU Eindhoven"
-                      width={80}
-                      height={36}
+                      width={60}
+                      height={28}
                       className="object-contain opacity-80 hover:opacity-100 transition-opacity"
                     />
                   </a>
@@ -443,8 +480,8 @@ export default function Home() {
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/TU_berlinLogo.png`}
                       alt="TU Berlin"
-                      width={80}
-                      height={45}
+                      width={60}
+                      height={34}
                       className="object-contain opacity-80 hover:opacity-100 transition-opacity"
                     />
                   </a>
@@ -452,8 +489,8 @@ export default function Home() {
                     <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/EIT-Digital.webp`}
                       alt="EIT Digital"
-                      width={80}
-                      height={50}
+                      width={60}
+                      height={38}
                       className="object-contain opacity-80 hover:opacity-100 transition-opacity"
                     />
                   </a>
@@ -501,17 +538,17 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               custom={1}
             >
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                 <div>
                   <h3 className="font-display text-xl text-ink">BTech Electronics and Telecommunication</h3>
                   <p className="mt-1 text-sm text-[#526271]">Aug 2016 – Sept 2020 · Ramaiah Institute of Technology, Bangalore</p>
                 </div>
-                <a href="https://www.msrit.edu/" target="_blank" rel="noreferrer" className="mt-1 shrink-0">
+                <a href="https://www.msrit.edu/" target="_blank" rel="noreferrer" className="shrink-0">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/RIT_logo.webp`}
                     alt="Ramaiah Institute of Technology"
-                    width={150}
-                    height={50}
+                    width={120}
+                    height={40}
                     className="object-contain opacity-80 hover:opacity-100 transition-opacity"
                   />
                 </a>
@@ -605,24 +642,62 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
+                  {project.link && (
+                    <a
+                      href={project.linkType === "internal" ? `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${project.link}` : project.link}
+                      target={project.linkType === "external" ? "_blank" : undefined}
+                      rel={project.linkType === "external" ? "noreferrer" : undefined}
+                      className="mt-3 inline-block text-sm text-[#2f7c85] hover:underline underline-offset-2"
+                    >
+                      {project.linkType === "external" ? "View on GitHub \u2192" : "Read more \u2192"}
+                    </a>
+                  )}
                 </motion.article>
               ))}
             </div>
+            {totalFilteredCount > 4 && (
+              <button
+                onClick={() => setShowAllProjects((prev) => !prev)}
+                className="mx-auto mt-6 flex items-center gap-1 text-sm text-[#7a8a96]/70 hover:text-[#2f7c85] transition-colors"
+                type="button"
+              >
+                {showAllProjects ? "Show less" : `Show all ${totalFilteredCount} projects`}
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-300 ${showAllProjects ? "rotate-180" : ""}`}
+                />
+              </button>
+            )}
           </SectionBlock>
 
           <SectionBlock id="publications" title="Publications">
-            <article>
-              <p className="text-[#8a9aa6] text-sm uppercase tracking-wide mb-2">Peer-Reviewed</p>
-              <a
-                href="https://ieeexplore.ieee.org/abstract/document/10817217"
-                target="_blank"
-                rel="noreferrer"
-                className="font-display text-xl text-ink hover:text-sea transition-colors"
-              >
-                Network Performance Monitoring in Large-Scale Zigbee Deployments
-              </a>
-              <p className="mt-1 text-sm text-[#7a8a96]">IEEE PIMRC 2024</p>
-            </article>
+            <p className="text-[#8a9aa6] text-sm uppercase tracking-wide mb-4">Peer-Reviewed</p>
+            <div className="space-y-6">
+              <article>
+                <a
+                  href="https://ieeexplore.ieee.org/abstract/document/10817217"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-display text-xl text-ink hover:text-sea transition-colors"
+                >
+                  Network Performance Monitoring in Large-Scale Zigbee Deployments
+                </a>
+                <p className="mt-1 text-sm text-[#7a8a96]">IEEE PIMRC 2024 &middot; Valencia, Spain</p>
+                <p className="mt-2 text-[15px] text-[#3d4d5b]">Proposed a novel framework for holistically monitoring the performance of large-scale Zigbee networks, combining reliability, robustness, and responsiveness metrics. Joint work with TU Eindhoven and Signify.</p>
+              </article>
+              <article>
+                <a
+                  href="https://ieeexplore.ieee.org/document/9198395"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-display text-xl text-ink hover:text-sea transition-colors"
+                >
+                  AGAAHI: A Smart Helmet for Two-Wheeler Safety
+                </a>
+                <p className="mt-1 text-sm text-[#7a8a96]">IEEE CONECCT 2020 &middot; Bangalore, India</p>
+                <p className="mt-2 text-[15px] text-[#3d4d5b]">Presented a complete safety system for two-wheeler riders — alcohol and drowsiness detection, automatic accident notification via GPS/GSM, and helmet-based ignition locking. Top 20 of 6,000+ teams in IICDC 2019.</p>
+              </article>
+            </div>
           </SectionBlock>
 
           <SectionBlock id="contact" title="Contact">
