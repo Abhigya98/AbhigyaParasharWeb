@@ -41,7 +41,7 @@ export function SiteNav({ activeId }: SiteNavProps) {
           })}
           <li>
             <Link
-              href={`${basePath}/for-fun`}
+              href="/for-fun"
               className="block whitespace-nowrap rounded-full border border-[#d9cfbf] px-4 py-2 text-sm text-[#425364] transition hover:bg-[#efe9dc]"
             >
               For Fun ↗

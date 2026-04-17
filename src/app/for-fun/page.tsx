@@ -111,7 +111,7 @@ export default function ForFun() {
       <header className="sticky top-0 z-50 border-b border-[#e7e2d9] bg-[#fbfaf6]/95 backdrop-blur">
         <div className="mx-auto flex max-w-4xl items-center justify-between gap-6 px-6 py-4 md:px-10">
           <Link
-            href={`${basePath}/`}
+            href="/"
             className="shrink-0 text-sm text-[#4e5b66] hover:text-[#c35b2d] transition-colors"
           >
             ← Abhigya Parashar
