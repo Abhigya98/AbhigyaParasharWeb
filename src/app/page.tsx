@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Github, Linkedin, GraduationCap, BriefcaseBusiness, BookOpen, ChevronDown } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { SectionBlock } from "@/components/SectionBlock";
@@ -619,15 +619,16 @@ export default function Home() {
                 );
               })}
             </div>
+            <AnimatePresence mode="popLayout">
             <div className="mt-3 grid gap-4 sm:grid-cols-2">
               {filteredProjects.map((project, index) => (
                 <motion.article
                   key={project.title}
                   className="border-b border-[#e8e0d4] pb-5 last:border-0"
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="visible"
-                  custom={index}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3, delay: index > 3 ? (index - 4) * 0.06 : 0 }}
                   layout
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -655,6 +656,7 @@ export default function Home() {
                 </motion.article>
               ))}
             </div>
+            </AnimatePresence>
             {totalFilteredCount > 4 && (
               <button
                 onClick={() => setShowAllProjects((prev) => !prev)}
