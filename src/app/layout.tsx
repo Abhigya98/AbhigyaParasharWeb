@@ -74,7 +74,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-9BV0JFGP8C"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -85,7 +85,7 @@ export default function RootLayout({
             gtag('consent', 'default', {
               analytics_storage: 'granted'
             });
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-9BV0JFGP8C');
           `}
         </Script>
       </head>
