@@ -133,7 +133,7 @@ export default function Home() {
             {/* Left: Profile photo with minimal styling */}
             <div className="relative md:col-span-1">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/Image_me.jfif`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/Image_me.webp`}
                 alt="Abhigya Parashar"
                 width={280}
                 height={360}

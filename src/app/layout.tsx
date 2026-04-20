@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Abhigya Parashar",
     images: [
       {
-        url: `/img/Image_me.jfif`,
+        url: `/img/Image_me.webp`,
         width: 600,
         height: 600,
         alt: "Abhigya Parashar",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Abhigya Parashar | Embedded Systems Engineer",
     description:
       "Embedded firmware, Zigbee/BLE wireless systems, and practical engineering impact.",
-    images: [`/img/Image_me.jfif`],
+    images: [`/img/Image_me.webp`],
   },
   robots: {
     index: true,
@@ -73,6 +73,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href={`${basePath}/favicon.ico`} />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-9BV0JFGP8C"
           strategy="afterInteractive"
