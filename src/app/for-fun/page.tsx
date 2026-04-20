@@ -105,6 +105,13 @@ function SectionDivider({ label, id }: { label: string; id?: string }) {
 }
 
 export default function ForFun() {
+  const categories = [
+    { id: "dutch", label: "Nederlands", emoji: "🇳🇱", desc: "A2-level writing practice" },
+    { id: "books", label: "Books", emoji: "📚", desc: "What I'm reading & notes" },
+    { id: "recipes", label: "Recipes", emoji: "🍳", desc: "Things I cook, no measurements" },
+    { id: "others", label: "Others", emoji: "☕", desc: "Coffee, music, miscellaneous" },
+  ];
+
   return (
     <main className="min-h-screen pb-24">
       {/* Minimal header */}
@@ -112,16 +119,10 @@ export default function ForFun() {
         <div className="mx-auto flex max-w-4xl items-center justify-between gap-6 px-6 py-4 md:px-10">
           <Link
             href="/"
-            className="shrink-0 text-sm text-[#4e5b66] hover:text-[#c35b2d] transition-colors"
+            className="shrink-0 text-sm text-[#4e5b66] hover:text-[#b34f24] transition-colors"
           >
             ← Abhigya Parashar
           </Link>
-          <nav className="flex items-center gap-5 overflow-x-auto text-sm">
-            <a href="#dutch" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Nederlands</a>
-            <a href="#books" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Books</a>
-            <a href="#recipes" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Recipes</a>
-            <a href="#coffee" className="shrink-0 text-[#4e5b66] hover:text-[#2f7c85] transition-colors">Coffee</a>
-          </nav>
         </div>
       </header>
 
@@ -134,24 +135,44 @@ export default function ForFun() {
         >
           <h1 className="font-display text-4xl font-bold text-[#13222f] md:text-5xl">For Fun</h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#3d4d5b]">
-            A page for things that don&apos;t belong on a CV — Dutch writing practice, books I&apos;m reading,
-            recipes I make, and thoughts on coffee.
+            Things that don&apos;t belong on a CV.
           </p>
-
-          {/* Spotify embed */}
-          <div className="mt-8 border-t border-[#e4ddd3] pt-8">
-            <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.18em] text-[#8a9aa6]">Brainport Radio — learning to swim, starting late</p>
-            <iframe
-              src="https://open.spotify.com/embed/episode/30cWGV56Dqnd4dIhs29Ojp"
-              width="100%"
-              height="152"
-              style={{ border: "none" }}
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              className="rounded-xl"
-            />
-          </div>
         </motion.div>
+
+        {/* Thumbnail grid */}
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+          {categories.map((cat, i) => (
+            <motion.a
+              key={cat.id}
+              href={`#${cat.id}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="group flex flex-col items-center gap-3 rounded-xl border border-[#e4ddd3] bg-white p-6 text-center shadow-sm transition hover:border-[#2f7c85] hover:shadow-md"
+            >
+              <span className="text-4xl">{cat.emoji}</span>
+              <span className="font-display text-sm font-semibold text-[#13222f] group-hover:text-[#2f7c85]">
+                {cat.label}
+              </span>
+              <span className="text-xs leading-snug text-[#6a7d8a]">{cat.desc}</span>
+            </motion.a>
+          ))}
+        </div>
+
+        {/* Spotify embed */}
+        <div className="mt-12 border-t border-[#e4ddd3] pt-8">
+          <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.18em] text-[#8a9aa6]">Brainport Radio — learning to swim, starting late</p>
+          <iframe
+            src="https://open.spotify.com/embed/episode/30cWGV56Dqnd4dIhs29Ojp"
+            width="100%"
+            height="152"
+            style={{ border: "none" }}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Brainport Radio Spotify episode"
+            className="rounded-xl"
+          />
+        </div>
 
         {/* ── Dutch writing ── */}
         <SectionDivider label="Nederlands oefenen" id="dutch" />
@@ -248,8 +269,8 @@ export default function ForFun() {
           ))}
         </div>
 
-        {/* ── Coffee ── */}
-        <SectionDivider label="Coffee" id="coffee" />
+        {/* ── Others ── */}
+        <SectionDivider label="Others" id="others" />
         <p className="mb-8 text-base text-[#6a7d8a]">
           Beans, brews, and opinions. I take it seriously but not that seriously.
         </p>
