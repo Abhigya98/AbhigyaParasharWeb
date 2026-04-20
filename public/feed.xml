@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abhigya Parashar — Nederlands oefenen</title>
+    <link>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/</link>
+    <description>Dutch writing practice by Abhigya Parashar. A2 level, not proofread.</description>
+    <language>nl</language>
+    <atom:link href="https://abhigya98.github.io/AbhigyaParasharWeb/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>4. De Veena</title>
+      <link>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#dutch</link>
+      <pubDate>Mon, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#post-4</guid>
+      <description>Vandag hebben we onze laatste les voor A1 nederlands. Voor deze les, heb ik enn muziek instrument gebracht. Het is de Veena.</description>
+    </item>
+    <item>
+      <title>3. Amsterdam Coffee Festival 2026</title>
+      <link>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#dutch</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#post-3</guid>
+      <description>Wat een super cafeïne-rijke dag! Vandaag, ben ik naar Amsterdam Coffee Festival geweest met mijn vriend en een vriendin.</description>
+    </item>
+    <item>
+      <title>2. Beslissing om naar Nederland te komen</title>
+      <link>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#dutch</link>
+      <pubDate>Sun, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#post-2</guid>
+      <description>Dit schrijven is voor mijn Nederlandse huiswerkoefening. Waarom kom jij naar Nederland?</description>
+    </item>
+    <item>
+      <title>1. Kennismaken</title>
+      <link>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#dutch</link>
+      <pubDate>Tue, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <guid>https://abhigya98.github.io/AbhigyaParasharWeb/for-fun/#post-1</guid>
+      <description>Ik heet Abhigya. Ik kom uit India, maar ik woon nu in Eindhoven.</description>
+    </item>
+  </channel>
+</rss>

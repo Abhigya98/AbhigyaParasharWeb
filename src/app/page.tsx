@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Github, Linkedin, GraduationCap, BriefcaseBusiness, BookOpen, ChevronDown } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -721,7 +722,7 @@ export default function Home() {
 
           <section>
             <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#e4ddd3] pt-6 text-sm text-[#556573]">
-              <p>Designed and engineered by Abhigya Parashar.</p>
+              <p></p>
               <div className="flex gap-4">
                 <a href="https://github.com/Abhigya98" target="_blank" rel="noreferrer" className="hover:text-accent">GitHub</a>
                 <a href="https://www.linkedin.com/in/abhigya-parashar/" target="_blank" rel="noreferrer" className="hover:text-accent">LinkedIn</a>
