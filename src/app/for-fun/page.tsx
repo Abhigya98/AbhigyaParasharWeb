@@ -114,6 +114,21 @@ export default function ForFun() {
 
   return (
     <main className="min-h-screen pb-24">
+      {/* Floating nav widget */}
+      <nav className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 flex items-center gap-1 rounded-full border border-[#e4ddd3] bg-white/95 px-2 py-2 shadow-lg backdrop-blur sm:gap-2 sm:px-3">
+        {categories.map((cat) => (
+          <a
+            key={cat.id}
+            href={`#${cat.id}`}
+            title={cat.label}
+            className="flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-medium text-[#4e5b66] transition hover:bg-[#e8f4f5] hover:text-[#2f7c85] sm:text-sm"
+          >
+            <span>{cat.emoji}</span>
+            <span className="hidden sm:inline">{cat.label}</span>
+          </a>
+        ))}
+      </nav>
+
       {/* Minimal header */}
       <header className="sticky top-0 z-50 border-b border-[#e7e2d9] bg-[#fbfaf6]/95 backdrop-blur">
         <div className="mx-auto flex max-w-4xl items-center justify-between gap-6 px-6 py-4 md:px-10">
