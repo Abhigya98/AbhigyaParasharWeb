@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -143,6 +143,17 @@ function SectionDivider({ label, id }: { label: string; id?: string }) {
 
 export default function ForFun() {
   const [showSpotify, setShowSpotify] = useState(false);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const timer = setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const categories = [
     { id: "dutch", label: "Nederlands", emoji: "🇳🇱", desc: "A2-level writing practice" },

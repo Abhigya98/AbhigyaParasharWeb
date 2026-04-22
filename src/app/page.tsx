@@ -181,7 +181,7 @@ export default function Home() {
                   I am an avid reader, love food, coffee and art and always have an ongoing project.
                   Right now I am learning Dutch (A2). I write short paragraphs to keep practising.
                   They are full of mistakes but it is oddly satisfying to see my progress —{" "}
-                  <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/for-fun`} className="underline underline-offset-2 hover:text-sea transition-colors">read them here</a>.
+                  <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/for-fun#dutch`} className="underline underline-offset-2 hover:text-sea transition-colors">read them here</a>.
                 </p>
                 {/* Swimming paragraph + Spotify embed — embed floats right, text wraps around it */}
                 <div className="mt-4 overflow-hidden">
@@ -283,7 +283,7 @@ export default function Home() {
                 ))}
               </div>
               <a
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work#signify`}
                 className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
               >
                 Read more →
@@ -323,7 +323,7 @@ export default function Home() {
                 ))}
               </div>
               <a
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work#kpit`}
                 className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
               >
                 Read more →
@@ -369,7 +369,7 @@ export default function Home() {
                 ))}
               </div>
               <a
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work#signify-intern`}
                 className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
               >
                 Read more →
@@ -405,7 +405,7 @@ export default function Home() {
                 ))}
               </div>
               <a
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work#shg`}
                 className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
               >
                 Read more →
@@ -441,7 +441,7 @@ export default function Home() {
                 ))}
               </div>
               <a
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work`}
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/work#iisc-dese`}
                 className="mt-4 inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
               >
                 Read more →

@@ -21,6 +21,18 @@ export default function WorkPage() {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Small delay to let framer-motion render the elements
+      const timer = setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -66,6 +78,7 @@ export default function WorkPage() {
 
           {/* Signify */}
           <motion.article
+            id="signify"
             className="timeline-item"
             variants={cardVariants}
             initial="hidden"
@@ -199,6 +212,7 @@ export default function WorkPage() {
 
           {/* Signify Intern */}
           <motion.article
+            id="signify-intern"
             className="timeline-item"
             variants={cardVariants}
             initial="hidden"
@@ -269,6 +283,7 @@ export default function WorkPage() {
 
           {/* KPIT */}
           <motion.article
+            id="kpit"
             className="timeline-item"
             variants={cardVariants}
             initial="hidden"
@@ -329,6 +344,7 @@ export default function WorkPage() {
 
           {/* Smart Health Global */}
           <motion.article
+            id="shg"
             className="timeline-item"
             variants={cardVariants}
             initial="hidden"
@@ -395,6 +411,7 @@ export default function WorkPage() {
 
           {/* IISc DESE */}
           <motion.article
+            id="iisc-dese"
             className="timeline-item"
             variants={cardVariants}
             initial="hidden"
