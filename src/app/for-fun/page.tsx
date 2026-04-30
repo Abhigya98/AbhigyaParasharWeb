@@ -24,11 +24,18 @@ type Book = {
   thoughts: string;
 };
 
+const mealCategories = ["All", "Breakfast", "Lunch", "Dinner", "Snacks"] as const;
+type MealCategory = (typeof mealCategories)[number];
+
 type Recipe = {
   id: number;
   name: string;
+  meal: Exclude<MealCategory, "All">;
   description: string;
+  prepTime?: string;
   tags: string[];
+  ingredients?: string[];
+  notes?: string;
 };
 
 type CoffeeNote = {
@@ -102,13 +109,87 @@ const books: Book[] = [
   },
 ];
 
-// Add recipes here
+// Add recipes here (newest first)
 const recipes: Recipe[] = [
   {
     id: 1,
-    name: "Placeholder recipe",
-    description: "Coming soon.",
-    tags: [],
+    name: "Masala Oats",
+    meal: "Breakfast",
+    description: "My go-to weekday breakfast. Savoury Indian-style oats — quick, filling, and you can throw in whatever vegetables are about to expire.",
+    prepTime: "10 min",
+    tags: ["High Protein", "Quick", "Vegetarian"],
+    ingredients: ["Rolled oats", "Onion", "Tomato", "Green chilli", "Turmeric", "Cumin seeds", "Salt", "Water or milk"],
+    notes: "Dry-roast the oats first for a nuttier taste. Add peanuts or a fried egg on top for extra protein.",
+  },
+  {
+    id: 2,
+    name: "Egg Fried Rice",
+    meal: "Lunch",
+    description: "Leftover rice rescue operation. Works best with day-old rice from the fridge — the drier the better.",
+    prepTime: "15 min",
+    tags: ["High Protein", "Quick"],
+    ingredients: ["Cooked rice (day-old)", "Eggs", "Soy sauce", "Spring onions", "Garlic", "Sesame oil", "Vegetables of choice"],
+    notes: "High heat is the secret. Don't crowd the pan. Scramble eggs first, set aside, then fry everything else.",
+  },
+  {
+    id: 3,
+    name: "Dal Tadka",
+    meal: "Dinner",
+    description: "Comfort food. Yellow lentils with a smoky tempered spice finish. My mother's recipe, loosely followed.",
+    prepTime: "35 min",
+    tags: ["High Protein", "Vegetarian"],
+    ingredients: ["Toor dal", "Onion", "Tomato", "Garlic", "Cumin seeds", "Mustard seeds", "Dried red chilli", "Turmeric", "Ghee", "Coriander leaves"],
+    notes: "Pressure cook the dal until soft. The tadka (tempering) at the end is what makes it — hot ghee, cumin, garlic, chilli. Pour it over and cover immediately to trap the smoke.",
+  },
+  {
+    id: 4,
+    name: "Greek Yogurt Bowl",
+    meal: "Breakfast",
+    description: "When I want something cold and fast. High protein, barely any effort.",
+    prepTime: "5 min",
+    tags: ["High Protein", "Quick", "Vegetarian"],
+    ingredients: ["Greek yogurt", "Honey", "Granola", "Mixed berries", "Chia seeds"],
+    notes: "Frozen berries work great — they thaw into the yogurt and make it even better.",
+  },
+  {
+    id: 5,
+    name: "Chicken Stir-fry",
+    meal: "Dinner",
+    description: "A weeknight staple. Fast enough for after work, protein-heavy enough to feel like a real meal.",
+    prepTime: "20 min",
+    tags: ["High Protein", "Quick"],
+    ingredients: ["Chicken breast", "Bell peppers", "Broccoli", "Soy sauce", "Oyster sauce", "Garlic", "Ginger", "Cornstarch", "Rice"],
+    notes: "Velvet the chicken (coat in cornstarch + soy sauce) before cooking. It stays juicy instead of turning rubbery.",
+  },
+  {
+    id: 6,
+    name: "Peanut Butter Banana Toast",
+    meal: "Snacks",
+    description: "The answer to every 4pm energy crash. Sweet, salty, crunchy.",
+    prepTime: "3 min",
+    tags: ["Quick", "Vegetarian"],
+    ingredients: ["Sourdough bread", "Peanut butter", "Banana", "Honey", "Cinnamon"],
+    notes: "Toast the bread well. Use crunchy peanut butter.",
+  },
+  {
+    id: 7,
+    name: "Paneer Bhurji",
+    meal: "Lunch",
+    description: "Scrambled paneer — the vegetarian answer to scrambled eggs but with Indian spices. Tastes better than it sounds.",
+    prepTime: "15 min",
+    tags: ["High Protein", "Quick", "Vegetarian"],
+    ingredients: ["Paneer (crumbled)", "Onion", "Tomato", "Green chilli", "Turmeric", "Garam masala", "Coriander leaves"],
+    notes: "Crumble the paneer by hand for uneven rustic texture. Serve with roti or inside a wrap.",
+  },
+  {
+    id: 8,
+    name: "Hummus & Veggie Wrap",
+    meal: "Lunch",
+    description: "A portable lunch that actually tastes good cold. Perfect for taking to work.",
+    prepTime: "10 min",
+    tags: ["Vegetarian", "Quick"],
+    ingredients: ["Tortilla wrap", "Hummus", "Cucumber", "Shredded carrots", "Mixed greens", "Feta cheese", "Lemon juice"],
+    notes: "Spread hummus edge-to-edge so nothing is dry. Roll tightly and slice diagonally.",
   },
 ];
 
@@ -143,6 +224,7 @@ function SectionDivider({ label, id }: { label: string; id?: string }) {
 
 export default function ForFun() {
   const [showSpotify, setShowSpotify] = useState(false);
+  const [mealFilter, setMealFilter] = useState<MealCategory>("All");
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -359,11 +441,32 @@ export default function ForFun() {
 
         {/* ── Recipes ── */}
         <SectionDivider label="Recipes" id="recipes" />
-        <p className="mb-8 text-base text-[#6a7d8a]">
+        <p className="mb-6 text-base text-[#6a7d8a]">
           Things I cook. No exact measurements, no food photography — just notes on what works.
         </p>
+
+        {/* Meal category filter pills */}
+        <div className="mb-8 flex flex-wrap gap-2">
+          {mealCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setMealFilter(cat)}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                mealFilter === cat
+                  ? "bg-[#2f7c85] text-white"
+                  : "border border-[#d9cfbf] bg-[#faf7f1] text-[#495a68] hover:border-[#2f7c85] hover:text-[#2f7c85]"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Recipe cards grid */}
         <div className="grid gap-6 sm:grid-cols-2">
-          {recipes.map((recipe, i) => (
+          {recipes
+            .filter((r) => mealFilter === "All" || r.meal === mealFilter)
+            .map((recipe, i) => (
             <motion.article
               key={recipe.id}
               initial="hidden"
@@ -371,20 +474,63 @@ export default function ForFun() {
               viewport={{ once: true, amount: 0.2 }}
               custom={i}
               variants={cardVariants}
-              className="rounded-lg border border-[#e4ddd3] p-5"
+              className="flex flex-col rounded-xl border border-[#e4ddd3] bg-white p-6 shadow-sm transition hover:shadow-md"
             >
-              <h2 className="font-display text-lg text-[#13222f]">{recipe.name}</h2>
-              <p className="mt-2 text-[15px] leading-6 text-[#3d4d5b]">{recipe.description}</p>
+              {/* Header: name + meal badge + time */}
+              <div className="flex items-start justify-between gap-3">
+                <h2 className="font-display text-lg font-semibold text-[#13222f]">{recipe.name}</h2>
+                <span className="shrink-0 rounded-full bg-[#e8f4f5] px-3 py-1 text-xs font-medium text-[#2f7c85]">
+                  {recipe.meal}
+                </span>
+              </div>
+
+              {recipe.prepTime && (
+                <p className="mt-1 text-xs text-[#8a9aa6]">⏱ {recipe.prepTime}</p>
+              )}
+
+              {/* Description */}
+              <p className="mt-3 text-[15px] leading-7 text-[#3d4d5b]">{recipe.description}</p>
+
+              {/* Tags */}
               {recipe.tags.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {recipe.tags.map((tag) => (
                     <span key={tag} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#7a6a58]">{tag}</span>
                   ))}
                 </div>
               )}
+
+              {/* Expandable ingredients & notes */}
+              {(recipe.ingredients || recipe.notes) && (
+                <details className="mt-4 group">
+                  <summary className="cursor-pointer text-xs font-semibold uppercase tracking-widest text-[#8a9aa6] select-none hover:text-[#2f7c85] transition-colors">
+                    Ingredients &amp; Notes
+                  </summary>
+                  <div className="mt-3 space-y-3">
+                    {recipe.ingredients && (
+                      <ul className="space-y-1 text-[14px] text-[#3d4d5b]">
+                        {recipe.ingredients.map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {recipe.notes && (
+                      <p className="text-[14px] leading-6 italic text-[#6a7d8a]">{recipe.notes}</p>
+                    )}
+                  </div>
+                </details>
+              )}
             </motion.article>
           ))}
         </div>
+
+        {/* Empty state */}
+        {recipes.filter((r) => mealFilter === "All" || r.meal === mealFilter).length === 0 && (
+          <p className="mt-6 text-center text-sm text-[#8a9aa6]">No recipes in this category yet.</p>
+        )}
 
         {/* ── Others ── */}
         <SectionDivider label="Others" id="others" />
