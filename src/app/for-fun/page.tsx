@@ -24,18 +24,24 @@ type Book = {
   thoughts: string;
 };
 
-const mealCategories = ["All", "Breakfast", "Lunch", "Dinner", "Snacks"] as const;
+const mealCategories = ["All", "Breakfast", "Brunch", "Lunch", "Dinner", "Snacks"] as const;
 type MealCategory = (typeof mealCategories)[number];
+
+type NutritionSlice = { label: string; value: number };
 
 type Recipe = {
   id: number;
   name: string;
-  meal: Exclude<MealCategory, "All">;
+  meal: Exclude<MealCategory, "All">[];
   description: string;
   prepTime?: string;
   tags: string[];
   ingredients?: string[];
   notes?: string;
+  inspirationUrl?: string;
+  macros?: { calories: number; protein: number; carbs: number; fat: number; fibre: number };
+  calorieBreakdown?: NutritionSlice[];
+  proteinBreakdown?: NutritionSlice[];
 };
 
 type CoffeeNote = {
@@ -113,83 +119,240 @@ const books: Book[] = [
 const recipes: Recipe[] = [
   {
     id: 1,
-    name: "Masala Oats",
-    meal: "Breakfast",
-    description: "My go-to weekday breakfast. Savoury Indian-style oats — quick, filling, and you can throw in whatever vegetables are about to expire.",
-    prepTime: "10 min",
-    tags: ["High Protein", "Quick", "Vegetarian"],
-    ingredients: ["Rolled oats", "Onion", "Tomato", "Green chilli", "Turmeric", "Cumin seeds", "Salt", "Water or milk"],
-    notes: "Dry-roast the oats first for a nuttier taste. Add peanuts or a fried egg on top for extra protein.",
+    name: "Savoury Oats",
+    meal: ["Breakfast"],
+    description: "High protein savoury breakfast. Especially good if taking iron earlier (to avoid dairy).",
+    tags: ["High Protein", "Quick", "Savoury"],
+    ingredients: ["60g fine oats", "1 tsp nutritional yeast flakes", "1/4 tsp miso", "1 tsp soya sauce light", "30g peas", "15g frozen spinach", "1 boiled egg","1/4 tsp lemon juice", "1 tbsp seed mix", "1/2 tsp chilli oil"],
+    notes: "Optional: cheese / cottage cheese / tahini. Protein: 1 boiled egg or vegan chicken.",
+    macros: { calories: 422, protein: 20, carbs: 40, fat: 16, fibre: 7 },
+    calorieBreakdown: [
+      { label: "Oats", value: 228 },
+      { label: "Egg", value: 78 },
+      { label: "Seed mix", value: 55 },
+      { label: "Peas", value: 24 },
+      { label: "Chilli oil", value: 20 },
+      { label: "Nutritional yeast", value: 10 },
+      { label: "Other", value: 7 },
+    ],
+    proteinBreakdown: [
+      { label: "Oats", value: 8 },
+      { label: "Egg", value: 6.3 },
+      { label: "Seed mix", value: 2 },
+      { label: "Peas", value: 1.6 },
+      { label: "Nutritional yeast", value: 1.5 },
+      { label: "Spinach", value: 0.4 },
+    ],
   },
   {
     id: 2,
-    name: "Egg Fried Rice",
-    meal: "Lunch",
-    description: "Leftover rice rescue operation. Works best with day-old rice from the fridge — the drier the better.",
-    prepTime: "15 min",
-    tags: ["High Protein", "Quick"],
-    ingredients: ["Cooked rice (day-old)", "Eggs", "Soy sauce", "Spring onions", "Garlic", "Sesame oil", "Vegetables of choice"],
-    notes: "High heat is the secret. Don't crowd the pan. Scramble eggs first, set aside, then fry everything else.",
+    name: "Tomato Mushroom Lentil Pasta",
+    meal: ["Lunch", "Dinner"],
+    description: "High protein lunch recipe. Makes 10 servings. Great for meal prep.",
+    tags: ["High Protein", "Savoury", "Vegan", "Meal Prep"],
+    ingredients: ["500g dried pasta", "600g chopped chestnut mushrooms", "2 onions, finely chopped", "8 cloves garlic, minced", "100g walnut pieces", "7 large sun-dried tomatoes, finely chopped", "1 tsp smoked paprika", "1 tbsp tomato paste", "2* 400g can of brown lentils, cooked and drained", "1 × 400g tin plum tomatoes", "3 tbsp nutritional yeast","Salt, pepper, extra virgin olive oil", "Parmesan for topping"],
+    inspirationUrl: "https://youtube.com/shorts/jVP3rDU6Ciw",
+    macros: { calories: 394, protein: 17, carbs: 59, fat: 10, fibre: 6 },
+    calorieBreakdown: [
+      { label: "Pasta", value: 185 },
+      { label: "Walnuts", value: 65 },
+      { label: "Lentils", value: 53 },
+      { label: "Olive oil", value: 24 },
+      { label: "Sun-dried tomatoes", value: 18 },
+      { label: "Mushrooms", value: 13 },
+      { label: "Onions", value: 12 },
+      { label: "Parmesan", value: 8 },
+      { label: "Other", value: 16 },
+    ],
+    proteinBreakdown: [
+      { label: "Pasta", value: 6.5 },
+      { label: "Lentils", value: 4.3 },
+      { label: "Mushrooms", value: 1.8 },
+      { label: "Walnuts", value: 1.5 },
+      { label: "Nutritional yeast", value: 0.8 },
+      { label: "Parmesan", value: 0.7 },
+      { label: "Onions", value: 0.4 },
+      { label: "Other", value: 1 },
+    ],
   },
   {
     id: 3,
-    name: "Dal Tadka",
-    meal: "Dinner",
-    description: "Comfort food. Yellow lentils with a smoky tempered spice finish. My mother's recipe, loosely followed.",
-    prepTime: "35 min",
-    tags: ["High Protein", "Vegetarian"],
-    ingredients: ["Toor dal", "Onion", "Tomato", "Garlic", "Cumin seeds", "Mustard seeds", "Dried red chilli", "Turmeric", "Ghee", "Coriander leaves"],
-    notes: "Pressure cook the dal until soft. The tadka (tempering) at the end is what makes it — hot ghee, cumin, garlic, chilli. Pour it over and cover immediately to trap the smoke.",
+    name: "Fruity Mango Spinach Couscous Salad",
+    meal: ["Lunch", "Brunch"],
+    description: "Fresh salad. Looks very pretty. Great for guests. Serves 8.",
+    tags: ["Pretty", "Salad", "Fresh"],
+    ingredients: [
+      "— Lime Maple Vinaigrette —",
+      "1/3 cup olive oil",
+      "2 tbsp maple syrup",
+      "2 tbsp apple cider vinegar",
+      "2 tbsp balsamic vinegar",
+      "1 lime, zested and juiced",
+      "1/4 tsp salt",
+      "— Salad —",
+      "200g small couscous",
+      "1/2 cup pecans",
+      "340g can of corn",
+      "1 large mango, peeled and sliced",
+      "3 cups baby arugula",
+      "3 cups baby spinach",
+      "2 large cucumbers, sliced",
+      "1 ripe avocado, sliced",
+      "1 cup fresh blackberries",
+      "1 cup fresh blueberries",
+      "Feta",
+      "400g brown lentils, cooked and drained",
+      "400g chickpeas, cooked and drained",
+    ],
+    notes: "Grill the sliced corn and mango beforehand. The salad tastes better the longer it marinates.",
+    inspirationUrl: "https://www.youtube.com/watch?v=LJ4JfYDJBzY",
+    macros: { calories: 447, protein: 14, carbs: 52, fat: 20, fibre: 7 },
+    calorieBreakdown: [
+      { label: "Couscous", value: 88 },
+      { label: "Olive oil", value: 75 },
+      { label: "Chickpeas", value: 49 },
+      { label: "Pecans", value: 48 },
+      { label: "Lentils", value: 33 },
+      { label: "Feta", value: 33 },
+      { label: "Avocado", value: 30 },
+      { label: "Corn", value: 29 },
+      { label: "Mango", value: 17 },
+      { label: "Berries", value: 16 },
+      { label: "Maple syrup", value: 13 },
+      { label: "Other", value: 16 },
+    ],
+    proteinBreakdown: [
+      { label: "Couscous", value: 3 },
+      { label: "Chickpeas", value: 2.8 },
+      { label: "Lentils", value: 2.8 },
+      { label: "Feta", value: 1.8 },
+      { label: "Corn", value: 1 },
+      { label: "Pecans", value: 0.6 },
+      { label: "Greens", value: 0.5 },
+      { label: "Other", value: 1.5 },
+    ],
   },
   {
     id: 4,
-    name: "Greek Yogurt Bowl",
-    meal: "Breakfast",
-    description: "When I want something cold and fast. High protein, barely any effort.",
-    prepTime: "5 min",
-    tags: ["High Protein", "Quick", "Vegetarian"],
-    ingredients: ["Greek yogurt", "Honey", "Granola", "Mixed berries", "Chia seeds"],
-    notes: "Frozen berries work great — they thaw into the yogurt and make it even better.",
+    name: "Bean Sandwich",
+    meal: ["Lunch", "Brunch"],
+    description: "Quick, protein-packed and filling.",
+    tags: ["High Protein", "Sandwich", "Quick"],
+    ingredients: [
+      "— Filling —",
+      "100g white beans (mashed)",
+      "1/2 white onion",
+      "2 cloves garlic",
+      "1 tbsp nutritional yeast",
+      "1/2 cucumber",
+      "150g canned corn",
+      "— Spices —",
+      "1 tsp bukunu",
+      "1 tsp mint",
+      "1 tsp pav bhaji masala / jeera",
+      "1 tsp chilli powder",
+      "1/4 tsp honey",
+      "1/2 tsp balsamic vinegar",
+      "— Sandwich —",
+      "2 slices bread",
+      "2 tbsp hummus (spread on bread)",
+      "20g spinach",
+      "2 slices gouda cheese",
+    ],
+    notes: "Mash the beans, mix the filling, spread hummus on bread, layer spinach, filling, and cheese.",
+    macros: { calories: 659, protein: 32, carbs: 90, fat: 17, fibre: 6 },
+    calorieBreakdown: [
+      { label: "Bread", value: 180 },
+      { label: "Gouda", value: 144 },
+      { label: "Corn", value: 114 },
+      { label: "White beans", value: 110 },
+      { label: "Hummus", value: 50 },
+      { label: "Onion", value: 24 },
+      { label: "Nutritional yeast", value: 17 },
+      { label: "Other", value: 20 },
+    ],
+    proteinBreakdown: [
+      { label: "Gouda", value: 10 },
+      { label: "White beans", value: 7 },
+      { label: "Bread", value: 6 },
+      { label: "Corn", value: 3 },
+      { label: "Nutritional yeast", value: 2.5 },
+      { label: "Hummus", value: 2 },
+      { label: "Spinach", value: 0.6 },
+      { label: "Other", value: 0.7 },
+    ],
   },
   {
     id: 5,
-    name: "Chicken Stir-fry",
-    meal: "Dinner",
-    description: "A weeknight staple. Fast enough for after work, protein-heavy enough to feel like a real meal.",
-    prepTime: "20 min",
+    name: "Egg Sandwich",
+    meal: ["Dinner"],
+    description: "Quick, good protein. Makes 2 slices of open sandwich per person.",
     tags: ["High Protein", "Quick"],
-    ingredients: ["Chicken breast", "Bell peppers", "Broccoli", "Soy sauce", "Oyster sauce", "Garlic", "Ginger", "Cornstarch", "Rice"],
-    notes: "Velvet the chicken (coat in cornstarch + soy sauce) before cooking. It stays juicy instead of turning rubbery.",
+    ingredients: [
+      "2 slices sourdough bread",
+      "2 tbsp pikant hummus (spread on bread)",
+      "10–20g salad greens (lettuce / arugula / spinach) as base",
+      "2 slices gouda cheese",
+      "2 boiled eggs, sliced",
+      "Salt, pepper",
+      "1 tsp balsamic glaze on top",
+    ],
+    macros: { calories: 563, protein: 32, carbs: 44, fat: 27, fibre: 3 },
+    calorieBreakdown: [
+      { label: "Bread", value: 200 },
+      { label: "Eggs", value: 156 },
+      { label: "Gouda", value: 144 },
+      { label: "Hummus", value: 50 },
+      { label: "Other", value: 13 },
+    ],
+    proteinBreakdown: [
+      { label: "Eggs", value: 12.6 },
+      { label: "Gouda", value: 10 },
+      { label: "Bread", value: 7 },
+      { label: "Hummus", value: 2 },
+      { label: "Greens", value: 0.4 },
+    ],
   },
   {
     id: 6,
-    name: "Peanut Butter Banana Toast",
-    meal: "Snacks",
-    description: "The answer to every 4pm energy crash. Sweet, salty, crunchy.",
-    prepTime: "3 min",
-    tags: ["Quick", "Vegetarian"],
-    ingredients: ["Sourdough bread", "Peanut butter", "Banana", "Honey", "Cinnamon"],
-    notes: "Toast the bread well. Use crunchy peanut butter.",
-  },
-  {
-    id: 7,
-    name: "Paneer Bhurji",
-    meal: "Lunch",
-    description: "Scrambled paneer — the vegetarian answer to scrambled eggs but with Indian spices. Tastes better than it sounds.",
-    prepTime: "15 min",
-    tags: ["High Protein", "Quick", "Vegetarian"],
-    ingredients: ["Paneer (crumbled)", "Onion", "Tomato", "Green chilli", "Turmeric", "Garam masala", "Coriander leaves"],
-    notes: "Crumble the paneer by hand for uneven rustic texture. Serve with roti or inside a wrap.",
-  },
-  {
-    id: 8,
-    name: "Hummus & Veggie Wrap",
-    meal: "Lunch",
-    description: "A portable lunch that actually tastes good cold. Perfect for taking to work.",
-    prepTime: "10 min",
-    tags: ["Vegetarian", "Quick"],
-    ingredients: ["Tortilla wrap", "Hummus", "Cucumber", "Shredded carrots", "Mixed greens", "Feta cheese", "Lemon juice"],
-    notes: "Spread hummus edge-to-edge so nothing is dry. Roll tightly and slice diagonally.",
+    name: "Goat Cheese Salad",
+    meal: ["Brunch", "Dinner"],
+    description: "Super quick and tasty. Serves 1.",
+    tags: ["Quick", "Salad"],
+    ingredients: [
+      "100g arugula",
+      "3 tbsp cottage cheese light",
+      "4 macadamia nuts",
+      "3 almonds",
+      "10 dried cranberries",
+      "1 small mandarin",
+      "Half a small purple onion",
+      "20g cooked tempeh",
+      "3 sun-dried tomatoes",
+      "1 tsp balsamic glaze",
+    ],
+    macros: { calories: 337, protein: 16, carbs: 35, fat: 14, fibre: 5 },
+    calorieBreakdown: [
+      { label: "Macadamia nuts", value: 86 },
+      { label: "Mandarin", value: 40 },
+      { label: "Sun-dried tomatoes", value: 38 },
+      { label: "Tempeh", value: 38 },
+      { label: "Cranberries", value: 33 },
+      { label: "Cottage cheese", value: 32 },
+      { label: "Arugula", value: 25 },
+      { label: "Almonds", value: 23 },
+      { label: "Other", value: 22 },
+    ],
+    proteinBreakdown: [
+      { label: "Cottage cheese", value: 5.4 },
+      { label: "Tempeh", value: 3.8 },
+      { label: "Arugula", value: 2.6 },
+      { label: "Macadamia nuts", value: 1 },
+      { label: "Sun-dried tomatoes", value: 1 },
+      { label: "Almonds", value: 0.8 },
+      { label: "Mandarin", value: 0.6 },
+      { label: "Other", value: 0.3 },
+    ],
   },
 ];
 
@@ -210,6 +373,52 @@ const cardVariants = {
     transition: { duration: 0.4, delay: i * 0.1, ease: "easeOut" },
   }),
 };
+
+const PIE_COLORS = [
+  "#2f7c85", "#b34f24", "#5b8c5a", "#8a6fad", "#c4883f",
+  "#d4726a", "#4a90a4", "#7d6b5d", "#a3b86c", "#c26f8a",
+  "#6a9fb5", "#d4a84b",
+];
+
+function PieChart({ slices, title, unit, colorMap }: { slices: NutritionSlice[]; title: string; unit: string; colorMap: Record<string, string> }) {
+  const total = slices.reduce((s, d) => s + d.value, 0);
+  if (total === 0) return null;
+
+  const size = 120;
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = 48;
+
+  let cumulative = 0;
+  const paths = slices.map((slice, i) => {
+    const fraction = slice.value / total;
+    const startAngle = cumulative * 2 * Math.PI - Math.PI / 2;
+    cumulative += fraction;
+    const endAngle = cumulative * 2 * Math.PI - Math.PI / 2;
+    const largeArc = fraction > 0.5 ? 1 : 0;
+    const x1 = cx + r * Math.cos(startAngle);
+    const y1 = cy + r * Math.sin(startAngle);
+    const x2 = cx + r * Math.cos(endAngle);
+    const y2 = cy + r * Math.sin(endAngle);
+    const d = `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z`;
+    return <path key={i} d={d} fill={colorMap[slice.label] ?? PIE_COLORS[i % PIE_COLORS.length]} />;
+  });
+
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <p className="text-xs font-semibold uppercase tracking-widest text-[#8a9aa6]">{title}</p>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>{paths}</svg>
+      <ul className="space-y-0.5 text-[11px] text-[#4e5b66]">
+        {slices.map((slice, i) => (
+          <li key={i} className="flex items-center gap-1.5">
+            <span className="inline-block h-2.5 w-2.5 shrink-0 rounded-sm" style={{ background: colorMap[slice.label] ?? PIE_COLORS[i % PIE_COLORS.length] }} />
+            {slice.label} — {Math.round(slice.value)}{unit} ({Math.round((slice.value / total) * 100)}%)
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 function SectionDivider({ label, id }: { label: string; id?: string }) {
   return (
@@ -465,7 +674,7 @@ export default function ForFun() {
         {/* Recipe cards grid */}
         <div className="grid gap-6 sm:grid-cols-2">
           {recipes
-            .filter((r) => mealFilter === "All" || r.meal === mealFilter)
+            .filter((r) => mealFilter === "All" || r.meal.includes(mealFilter as Exclude<MealCategory, "All">))
             .map((recipe, i) => (
             <motion.article
               key={recipe.id}
@@ -479,9 +688,13 @@ export default function ForFun() {
               {/* Header: name + meal badge + time */}
               <div className="flex items-start justify-between gap-3">
                 <h2 className="font-display text-lg font-semibold text-[#13222f]">{recipe.name}</h2>
-                <span className="shrink-0 rounded-full bg-[#e8f4f5] px-3 py-1 text-xs font-medium text-[#2f7c85]">
-                  {recipe.meal}
-                </span>
+                <div className="flex shrink-0 gap-1.5">
+                  {recipe.meal.map((m) => (
+                    <span key={m} className="rounded-full bg-[#e8f4f5] px-3 py-1 text-xs font-medium text-[#2f7c85]">
+                      {m}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {recipe.prepTime && (
@@ -490,6 +703,21 @@ export default function ForFun() {
 
               {/* Description */}
               <p className="mt-3 text-[15px] leading-7 text-[#3d4d5b]">{recipe.description}</p>
+
+              {/* Macros */}
+              {recipe.macros && (
+                <div className="mt-3 flex flex-wrap gap-3 text-xs text-[#6a7d8a]">
+                  <span>{recipe.macros.calories} kcal</span>
+                  <span className="text-[#d9cfbf]">|</span>
+                  <span>P {recipe.macros.protein}g</span>
+                  <span className="text-[#d9cfbf]">|</span>
+                  <span>C {recipe.macros.carbs}g</span>
+                  <span className="text-[#d9cfbf]">|</span>
+                  <span>F {recipe.macros.fat}g</span>
+                  <span className="text-[#d9cfbf]">|</span>
+                  <span>Fibre {recipe.macros.fibre}g</span>
+                </div>
+              )}
 
               {/* Tags */}
               {recipe.tags.length > 0 && (
@@ -520,6 +748,34 @@ export default function ForFun() {
                     {recipe.notes && (
                       <p className="text-[14px] leading-6 italic text-[#6a7d8a]">{recipe.notes}</p>
                     )}
+                    {(recipe.calorieBreakdown || recipe.proteinBreakdown) && (() => {
+                      const allLabels = Array.from(new Set([
+                        ...(recipe.calorieBreakdown ?? []).map((s) => s.label),
+                        ...(recipe.proteinBreakdown ?? []).map((s) => s.label),
+                      ]));
+                      const colorMap: Record<string, string> = {};
+                      allLabels.forEach((label, i) => { colorMap[label] = PIE_COLORS[i % PIE_COLORS.length]; });
+                      return (
+                        <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                          {recipe.calorieBreakdown && (
+                            <PieChart slices={recipe.calorieBreakdown} title="Calories by ingredient" unit=" kcal" colorMap={colorMap} />
+                          )}
+                          {recipe.proteinBreakdown && (
+                            <PieChart slices={recipe.proteinBreakdown} title="Protein by ingredient" unit="g" colorMap={colorMap} />
+                          )}
+                        </div>
+                      );
+                    })()}
+                    {recipe.inspirationUrl && (
+                      <a
+                        href={recipe.inspirationUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-[#2f7c85] hover:underline underline-offset-2 transition-colors"
+                      >
+                        Inspiration video →
+                      </a>
+                    )}
                   </div>
                 </details>
               )}
@@ -528,7 +784,7 @@ export default function ForFun() {
         </div>
 
         {/* Empty state */}
-        {recipes.filter((r) => mealFilter === "All" || r.meal === mealFilter).length === 0 && (
+        {recipes.filter((r) => mealFilter === "All" || r.meal.includes(mealFilter as Exclude<MealCategory, "All">)).length === 0 && (
           <p className="mt-6 text-center text-sm text-[#8a9aa6]">No recipes in this category yet.</p>
         )}
 
