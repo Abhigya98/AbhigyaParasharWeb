@@ -449,7 +449,7 @@ export default function ForFun() {
   const categories = [
     { id: "dutch", label: "Nederlands", emoji: "🇳🇱", desc: "A2-level writing practice" },
     { id: "books", label: "Books", emoji: "📚", desc: "What I'm reading & notes" },
-    { id: "recipes", label: "Recipes", emoji: "🍳", desc: "Things I cook, no measurements" },
+    { id: "recipes", label: "Recipes", emoji: "🍳", desc: "My regular recipes" },
     { id: "others", label: "Others", emoji: "☕", desc: "Coffee, music, miscellaneous" },
   ];
 
@@ -499,7 +499,7 @@ export default function ForFun() {
         >
           <h1 className="font-display text-4xl font-bold text-[#13222f] md:text-5xl">For Fun</h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#3d4d5b]">
-            Things that don&apos;t belong on a CV.
+            My hobbies outside of work.
           </p>
         </motion.div>
 
@@ -651,7 +651,7 @@ export default function ForFun() {
         {/* ── Recipes ── */}
         <SectionDivider label="Recipes" id="recipes" />
         <p className="mb-6 text-base text-[#6a7d8a]">
-          Things I cook. No exact measurements, no food photography — just notes on what works.
+          My regular recipes.
         </p>
 
         {/* Meal category filter pills */}

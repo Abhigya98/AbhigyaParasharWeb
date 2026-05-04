@@ -168,19 +168,20 @@ export default function Home() {
               <div>
                 <p className="mb-4 text-2xl font-medium text-[#3d4d5b]">Hi! 👋</p>
                 <p className="text-lg leading-relaxed text-[#3d4d5b]">
-                  I am Abhigya. I grew up in India, moved to Europe to pursue a master&apos;s in embedded systems, and now live in Eindhoven as an embedded software engineer at{" "}
-                  <span className="font-medium text-[#2a3b48]">Signify</span>.
+                  I am Abhigya. I grew up in India, studied and lived there for 22 years and then moved to Europe to pursue a master&apos;s in embedded systems. Now I live in Eindhoven as an 
+                  embedded software engineer at{" "}<span className="font-medium text-[#2a3b48]">Signify</span>.
                   I develop and validate features in the indoor smart lighting arena by writing firmware in C.
                 </p>
                 <p className="mt-4 text-lg leading-relaxed text-[#3d4d5b]">
-                  Outside of work, I tinker with electronics — there&apos;s an ESP32 audio visualiser on my desk that&apos;s been <em>almost finished</em> for a few weeks.
+                  Outside of work, I tinker with electronics, sensors and microcontrollers. There&apos;s an ESP32 audio visualiser on my desk that&apos;s been <em>almost finished</em> for a 
+                  quite a few weeks, haha.
                   Lately, I’ve been focusing on Embedded Linux and Edge AI.
-                  I&apos;m drawn to the places where technology meets real life: how it changes behaviour, how it shapes economies, and its impact on society.
+                  I&apos;m drawn to the places where technology meets real life: how it changes behaviour, its role in shaping economics, and its impact on society.
                 </p>
                 <p className="mt-4 text-lg leading-relaxed text-[#3d4d5b]">
                   I am an avid reader, love food, coffee and art and always have an ongoing project.
                   Right now I am learning Dutch (A2). I write short paragraphs to keep practising.
-                  They are full of mistakes but it is oddly satisfying to see my progress —{" "}
+                  They are full of mistakes but it is oddly satisfying to see my progress. You can {" "}
                   <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/for-fun#dutch`} className="underline underline-offset-2 hover:text-sea transition-colors">read them here</a>.
                 </p>
                 {/* Swimming paragraph + Spotify embed — embed floats right, text wraps around it */}
@@ -197,10 +198,10 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-lg leading-relaxed text-[#3d4d5b]">
-                    At 27, I am fulfilling my long awaited dream of swimming, haha.
-                    That journey led to a conversation on{" "}
+                    At 27, I am fulfilling my long awaited dream of swimming, haha. Its frustrating and rewarding at the same time.
+                    Listen to the conversation on the struggles of learning how to swim as an adult on {" "}
                     <a href="https://open.spotify.com/episode/30cWGV56Dqnd4dIhs29Ojp?si=u4ogZMUSQ9i6VYEL50pGUw" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">Brainport Radio</a>
-                    {" "} with my coach (<a href="https://www.linkedin.com/posts/meagin-van-der-westhuizen-b875404b_the-courage-to-dive-in-learning-to-swim-activity-7446908227541291008-rRfa?utm_source=share&utm_medium=member_desktop&rcm=ACoAACYEqj8BU57Grn_Uq88VGlcRlWXKnrS5Lug" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">LinkedIn</a>).
+                    {" "} with my coach and me (<a href="https://www.linkedin.com/posts/meagin-van-der-westhuizen-b875404b_the-courage-to-dive-in-learning-to-swim-activity-7446908227541291008-rRfa?utm_source=share&utm_medium=member_desktop&rcm=ACoAACYEqj8BU57Grn_Uq88VGlcRlWXKnrS5Lug" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">LinkedIn</a>).
                   </p>
                 </div>
               </div>
