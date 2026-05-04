@@ -53,6 +53,15 @@ type CoffeeNote = {
 // Add new Dutch writing entries here (newest first by date)
 const posts: Post[] = [
   {
+    id: 5,
+    date: "April 28, 2026",
+    title: "Konnigsdag!",
+    dutch:
+      "Mijn laatste les voor A1 Nederlands is voorbij. Ik feliciteer mezelf! Daarna heb ik twee weken vakantie van Nederlands, maar ik mis het. Ik ben mijn A2 cursis begonnen op 5th Mei. Ik ben enthousiast.\n\nVorige week was een moeilijke week. De Oma van Kris is overleden en dit was een moeilijke tijd voor de familie. Ik ben naar haar begrafenis geweest. Het was een mooi begrafenis op een dag met mooi weer. Dat maakte me blij. Haar vrienden kwamen om afscheid te zeggen. Het was een intieme ceremonie. Ze leefde een vol en mooi leven.\n\nWe hadden ook Konnigsdag in de volgende week. Onze vrienden hebben vanuit Frankrijk bezocht. We zijn naar Amsterdam geweest. Dit jaar was het minder druk in de stad. Zeer weinig boten en mensen. Maar het was een heel leuk en grappig dag.\n\nIk ben opgewonden voor mijn A2 cursus volgende week. Wens me veel succes!",
+    english:
+      "My last lesson for A1 Dutch is over. I congratulate myself. After that I have two weeks off from Dutch, but I miss it. I have started my A2 course on the 5th of May. I am enthusiastic.\n\nLast week was a difficult week. Kris's grandmother passed away and this was a difficult time for the family. I went to her funeral. It was a beautiful funeral on a day with beautiful weather. That made me happy. Her friends came to say goodbye. It was an intimate ceremony. She lived a full and beautiful life.\n\nWe also had King's Day the following week. Our friends visited from France. We went to Amsterdam. This year it was less busy in the city. Very few boats and people. But it was a very fun and funny day.\n\nI am excited for my A2 course next week. Wish me luck!",
+  },
+  {
     id: 4,
     date: "April 21, 2026",
     title: "De Veena",
