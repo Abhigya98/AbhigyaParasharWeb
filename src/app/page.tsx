@@ -26,7 +26,7 @@ const projectCards = [
   {
     title: "ESP32 Audio Visualiser",
     type: "Embedded",
-    summary: "A home audio visualiser using an ESP32, MAX9814 microphone, and an LED matrix. Captures ambient sound, runs FFT to extract frequency bands, and drives real-time LED patterns. Still in progress — hard to stop tinkering with it.",
+    summary: "A home audio visualiser using an ESP32, MAX9814 microphone, and an LED matrix. Captures ambient sound, runs FFT to extract frequency bands, and drives real-time LED patterns. Still in progress.",
     stack: ["ESP32", "C", "FFT", "LED Matrix"],
     link: "https://github.com/Abhigya98/AudioVisualiser",
     linkType: "external" as const,
@@ -34,7 +34,7 @@ const projectCards = [
   {
     title: "AGAAHI — Smart Helmet",
     type: "Hardware",
-    summary: "A complete two-wheeler safety system: smart helmet with alcohol and drowsiness detection, GPS/GSM accident alerts, and ignition lock. Built with TI CC3200 MCUs and sensors. Top 20 of 6,000+ teams nationwide (IICDC 2019).",
+    summary: "A complete two-wheeler safety system: smart helmet with alcohol and drowsiness detection, GPS/GSM accident alerts, and ignition lock. Built with TI CC3200 MCU. Top 20 of 6,000+ teams nationwide (IICDC 2019).",
     stack: ["C", "TI CC3200", "GPS", "GSM", "Sensors"],
     link: "https://github.com/Abhigya98/Aagaahi-A-smart-helmet",
     linkType: "external" as const,
@@ -48,18 +48,18 @@ const projectCards = [
     linkType: "external" as const,
   },
   {
-    title: "BLE OTA Deployment Optimizer",
-    type: "Embedded",
-    summary: "The update problem that was actually a scheduling problem. Redesigned the BLE OTA flow for 200-device deployments — brought update time from 2.5\u20134 hours down to about 25 minutes.",
-    stack: ["C", "BLE", "Zigbee", "RTOS"],
+    title: "Network Performance Monitoring Framework",
+    type: "Research",
+    summary: "Masters thesis. Built a framework to quantitatively measure what a large Zigbee network is doing using reliability, robustness, and responsiveness qualitative metrics.",
+    stack: ["Python", "Validation", "WSN", "Analytics"],
     link: "/work",
     linkType: "internal" as const,
   },
   {
-    title: "Network Performance Monitoring Framework",
-    type: "Research",
-    summary: "Part of my thesis work. Built a framework to quantitatively measure what a large Zigbee network is doing — reliability, robustness, and responsiveness — because intuition alone doesn\u2019t scale to hundreds of nodes.",
-    stack: ["Python", "Validation", "WSN", "Analytics"],
+    title: "BLE OTA Deployment Optimizer",
+    type: "Embedded",
+    summary: "Redesigned the BLE OTA flow for 200-device deployments and brought update time from 2.5\u20134 hours down to about 25 minutes.",
+    stack: ["C", "BLE", "Zigbee", "RTOS"],
     link: "/work",
     linkType: "internal" as const,
   },
@@ -71,14 +71,14 @@ const projectCards = [
     link: "/work",
     linkType: "internal" as const,
   },
-  {
-    title: "BDD Validation Pipeline",
-    type: "Automation",
-    summary: "I got tired of catching regressions manually. A BDD-style test pipeline in Python that made releases less stressful for everyone involved.",
-    stack: ["Python", "BDD", "C#", "CI"],
-    link: "/work",
-    linkType: "internal" as const,
-  },
+  // {
+  //   title: "BDD Validation Pipeline",
+  //   type: "Automation",
+  //   summary: "I got tired of catching regressions manually. A BDD-style test pipeline in Python that made releases less stressful for everyone involved.",
+  //   stack: ["Python", "BDD", "C#", "CI"],
+  //   link: "/work",
+  //   linkType: "internal" as const,
+  // },
 ] as const;
 
 export default function Home() {
@@ -198,7 +198,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-lg leading-relaxed text-[#3d4d5b]">
-                    At 27, I am fulfilling my long awaited dream of swimming, haha. Its frustrating and rewarding at the same time.
+                    At 27, I am fulfilling my long awaited dream of swimming, haha. Quite frustrating and rewarding at the same time.
                     Listen to the conversation on the struggles of learning how to swim as an adult on {" "}
                     <a href="https://open.spotify.com/episode/30cWGV56Dqnd4dIhs29Ojp?si=u4ogZMUSQ9i6VYEL50pGUw" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">Brainport Radio</a>
                     {" "} with my coach and me (<a href="https://www.linkedin.com/posts/meagin-van-der-westhuizen-b875404b_the-courage-to-dive-in-learning-to-swim-activity-7446908227541291008-rRfa?utm_source=share&utm_medium=member_desktop&rcm=ACoAACYEqj8BU57Grn_Uq88VGlcRlWXKnrS5Lug" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-sea transition-colors">LinkedIn</a>).
@@ -271,10 +271,10 @@ export default function Home() {
                 </a>
               </div>
               <p className="mt-3 text-[#3d4d5b]">
-                Developing firmware in C for EFR32-based sensor nodes in indoor smart lighting systems — Zigbee mesh with BLE connectivity, running on Micrium OS III. Some key contributions include:
+                Developing firmware in C for EFR32-based sensor nodes in indoor smart lighting systems having Zigbee mesh with BLE connectivity, running on Micrium OS III. Some key contributions include:
               </p>
               <ul className="mt-3 space-y-2 text-[#3d4d5b] text-[15px] leading-relaxed">
-                <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" /><span>BLE OTA optimisation that cut update time for a 200-device network from 2.5–4 hours (Zigbee OTA) to ~25 minutes — live in production.</span></li>
+                <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" /><span>BLE OTA optimisation that cut update time for a 200-device network from 2.5–4 hours (Zigbee OTA) to ~25 minutes. Live in production.</span></li>
                 <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" /><span>Platform unification across product lines, including modular component design and backward compatibility.</span></li>
                 <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7c85]" /><span>Post-OTA migration handling in devices after firmware upgrades to preserve crucial data.</span></li>
               </ul>
@@ -359,7 +359,7 @@ export default function Home() {
                 </a>
               </div>
               <p className="mt-2 text-[#3d4d5b]">
-                Built a network performance monitoring framework for large-scale Zigbee deployments — automated &ldquo;health reports&rdquo; used for quality deployement of indoor light networks. 
+                Built a network performance monitoring framework for large-scale Zigbee deployments. An automated &ldquo;health reports&rdquo; used for quality deployement of indoor light networks. 
                 Presented the research at the{" "}
                 <a href="https://ieeexplore.ieee.org/abstract/document/10817217" target="_blank" rel="noreferrer" className="text-[#2f7c85] hover:underline underline-offset-2">IEEE PIMRC International Conference</a>
                 {" "}in Valencia, Spain. Click on read more to know about the research and the conference.
@@ -399,7 +399,7 @@ export default function Home() {
                   />
                 </a>
               </div>
-              <p className="mt-2 text-[#3d4d5b]">Built smart vision glasses for the visually impaired and a portable vein finder for elderly care — image processing on embedded devices at a 15-person start-up doing impactful work in underserved Indian communities.</p>
+              <p className="mt-2 text-[#3d4d5b]">Built smart vision glasses for the visually impaired and a portable vein finder for elderly care. It involved image processing on embedded devices at a 15-person start-up doing impactful work in underserved Indian communities.</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {["C", "Python", "OpenCV", "Raspberry Pi"].map((tech) => (
                   <span key={tech} className="rounded-full bg-[#f0ece4] px-3 py-1 text-xs text-[#485967]">{tech}</span>
@@ -518,16 +518,16 @@ export default function Home() {
                 <div className="mt-3 rounded-lg bg-[#f4f1ec] px-5 py-4 text-[13px] leading-6 text-[#3d4d5b] shadow-sm">
                   <p className="font-medium text-[#13222f] mb-2">Studies</p>
                   <ul className="space-y-2 list-disc pl-5">
-                    <li>EIT Digital is a rigorous programme that spans two countries, with a summer school in a third. Alongside the technical curriculum, we had courses on entrepreneurship, building a start-up, and sustainability. Nearly every course carried a business dimension — pitching ideas, presenting solutions, and collaborative brainstorming were the norm.</li>
+                    <li>EIT Digital is a rigorous programme that spans two countries, with a summer school in a third. Alongside the technical curriculum, we had courses on entrepreneurship, building a start-up, and sustainability. Nearly every course carried a business dimension. Pitching ideas, presenting solutions, and collaborative brainstorming were the norm.</li>
                     <li>On the technical side, I took courses in Compiler Design, Computer Architecture, System Validation, Network Design, Distributed Systems, IoT Fundamentals, Algorithms and Data Structures, among others.</li>
                   </ul>
 
                   <p className="font-medium text-[#13222f] mt-4 mb-2">Personal experience</p>
                   <ul className="space-y-2 list-disc pl-5">
-                    <li>As an international student from a very different culture and background, assimilating was not straightforward. Both Eindhoven and Berlin are notorious for their housing crises — finding a place from outside the city is genuinely difficult, riddled with scams, and prohibitively expensive. Add to that a completely different academic system, unfamiliar exam formats, and higher expectations of independent output.</li>
-                    <li>It was an unfamiliar arena, unlike anything I had dealt with before. I had to learn how to navigate bureaucracy, advocate for myself, and build a support system from scratch — all while keeping up with a demanding academic schedule. It was overwhelming at times, but it forced me to grow in ways I hadn&apos;t anticipated.</li>
+                    <li>As an international student from a very different culture and background, assimilating was not straightforward. Both Eindhoven and Berlin are notorious for their housing crises. Finding a place from outside the city is genuinely difficult, riddled with scams, and prohibitively expensive. Add to that a completely different academic system, unfamiliar exam formats, and higher expectations of independent output.</li>
+                    <li>It was an unfamiliar arena. I had to learn how to navigate bureaucracy, advocate for myself, and build a support system from scratch, all while keeping up with a demanding academic schedule. It was overwhelming at times, but it forced me to grow in ways I hadn&apos;t anticipated.</li>
                     <li>Just as you begin to settle in and build a social life in one city, the programme expects you to uproot and start over in another. It&apos;s disorienting, but it forces adaptability and really pushes you out of your comfort zone.</li>
-                    <li>Despite the struggles, it was deeply enriching. Meeting people from all over the world genuinely broadens how you think. My technical, social, and networking skills grew rapidly — and today I see the payoff in how quickly I connect with people and how willingly I take on the unfamiliar.</li>
+                    <li>Despite the struggles, it was deeply enriching. Meeting people from all over the world genuinely broadens how you think. My technical, social, and networking skills grew rapidly and today I see the payoff in how quickly I connect with people and how willingly I take on the unfamiliar.</li>
                   </ul>
                 </div>
               </details>
@@ -574,22 +574,22 @@ export default function Home() {
                 <div className="mt-3 rounded-lg bg-[#f4f1ec] px-5 py-4 text-[13px] leading-6 text-[#3d4d5b] shadow-sm">
                   <p className="font-medium text-[#13222f] mb-2">Studies</p>
                   <ul className="space-y-2 list-disc pl-5">
-                    <li>From the beginning I was drawn to electronics, IoT, and embedded systems. The coursework was broad and technically demanding — Digital Signal Processing, Control Systems, Digital Logic Design (logic gates, adders, Verilog), Signals and Systems, Analog Circuit Design, Machine Learning, Antennas, Embedded Systems, Microelectronics, Linear Programming, Data Structures in C, Network Analysis, Computer Communication Networks, and Wireless Networks and Protocols.</li>
+                    <li>From the beginning I was drawn to electronics, IoT, and embedded systems. The coursework was broad and technically demanding. Digital Signal Processing, Control Systems, Digital Logic Design (logic gates, adders, Verilog), Signals and Systems, Analog Circuit Design, Machine Learning, Antennas, Embedded Systems, Microelectronics, Linear Programming, Data Structures in C, Network Analysis, Computer Communication Networks, and Wireless Networks and Protocols.</li>
                     <li>The studies were manageable and I maintained a respectable GPA of 8.96/10, but most of my real learning happened outside the classroom.</li>
                   </ul>
 
                   <p className="font-medium text-[#13222f] mt-4 mb-2">Personal</p>
                   <ul className="space-y-2 list-disc pl-5">
                     <li>I was an active participant in hackathons and ideathons throughout my bachelors. In March 2019, I won the university-wide Ideathon for the most innovative project with AGAAHI: A smart helmet. With the same idea, my team and I entered <span className="font-medium">IICDC 2019</span> (India Innovation Challenge Design Contest) — a nationwide competition organised by Texas Instruments, IIM Bangalore, and the Government of India.</li>
-                    <li>The process taught us patent filing, pitching, documentation, and co-founder collaboration — and it&apos;s where I first got interested in entrepreneurship. We made it to the final round and received a gold certificate, but were ultimately not selected for incubation as the product depended heavily on stricter government regulation — something we couldn&apos;t influence or predict the timeline of.</li>
-                    <li>This competition directly influenced my decision to apply for EIT Digital — a programme that combined business and entrepreneurship with a strong technical foundation in my field of choice.</li>
+                    <li>The process taught us patent filing, pitching, documentation, and co-founder collaboration and it&apos;s where I first got interested in entrepreneurship. We made it to the final round and received a gold certificate, but were ultimately not selected for incubation as the product depended heavily on stricter government regulation. Something we couldn&apos;t influence or predict the timeline of.</li>
+                    <li>This competition directly influenced my decision to apply for EIT Digital, a programme that combined business and entrepreneurship with a strong technical foundation in my field of choice.</li>
                   </ul>
 
                   <p className="font-medium text-[#13222f] mt-4 mb-2">AGAAHI — A Smart Helmet for Two-Wheeler Safety</p>
                   <ul className="space-y-2 list-disc pl-5">
                     <li><span className="italic">AGAAHI</span> is a Hindi word meaning &ldquo;to alert someone of danger.&rdquo; The project was inspired by the same principle.</li>
-                    <li>Road safety is a critical concern in India — over 150,000 people die in road accidents each year, with two-wheeler riders being the most vulnerable. A significant number of these fatalities involve drunk driving or not following traffic rules.</li>
-                    <li>We built <span className="font-medium">AGAAHI</span>: a complete safety solution for two-wheeler riders. It consisted of a smart helmet and a portable device that integrates seamlessly with the vehicle. The device would prevent the bike from starting if the rider wasn&apos;t wearing the helmet. The helmet could detect if the rider was too drunk or too drowsy to drive safely. In case of an accident, it would automatically activate a safety system — notifying emergency contacts with the rider&apos;s location, and alerting the nearest police station and hospital.</li>
+                    <li>Road safety is a critical concern in India, over 150,000 people die in road accidents each year, with two-wheeler riders being the most vulnerable. A significant number of these fatalities involve drunk driving or not following traffic rules.</li>
+                    <li>We built <span className="font-medium">AGAAHI</span>: a complete safety solution for two-wheeler riders. It consisted of a smart helmet and a portable device that integrates seamlessly with the vehicle. The device would prevent the bike from starting if the rider wasn&apos;t wearing the helmet. The helmet could detect if the rider was too drunk or too drowsy to drive safely. In case of an accident, it would automatically activate a safety system, notifying emergency contacts with the rider&apos;s location, and alerting the nearest police station and hospital.</li>
                     <li>The project was well received because it was tested in real conditions, integrated into an actual two-wheeler. We were among the <span className="font-medium">top 20 teams across 6,000+</span> that received &#8377;0.5M in funding to take the prototype further.</li>
                     <li>My team and I brought the project to a logical conclusion by writing a paper, which was accepted at the{" "}
                       <a href="https://ieeexplore.ieee.org/document/9198395" target="_blank" rel="noreferrer" className="text-[#2f7c85] hover:underline underline-offset-2">IEEE CONECCT 2020 conference</a>.
@@ -699,7 +699,7 @@ export default function Home() {
                   AGAAHI: A Smart Helmet for Two-Wheeler Safety
                 </a>
                 <p className="mt-1 text-sm text-[#7a8a96]">IEEE CONECCT 2020 &middot; Bangalore, India</p>
-                <p className="mt-2 text-[15px] text-[#3d4d5b]">Presented a complete safety system for two-wheeler riders — alcohol and drowsiness detection, automatic accident notification via GPS/GSM, and helmet-based ignition locking. Top 20 of 6,000+ teams in IICDC 2019.</p>
+                <p className="mt-2 text-[15px] text-[#3d4d5b]">Presented a complete safety system for two-wheeler riders: alcohol and drowsiness detection, automatic accident notification via GPS/GSM, and helmet-based ignition locking. Top 20 of 6,000+ teams in IICDC 2019.</p>
               </article>
             </div>
           </SectionBlock>

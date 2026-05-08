@@ -534,7 +534,7 @@ export default function ForFun() {
 
         {/* Spotify embed */}
         <div className="mt-12 border-t border-[#e4ddd3] pt-8">
-          <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.18em] text-[#8a9aa6]">Brainport Radio — learning to swim, starting late</p>
+          <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.18em] text-[#8a9aa6]">Brainport Radio: Learning to swim, starting late</p>
           {showSpotify ? (
             <iframe
               src="https://open.spotify.com/embed/episode/30cWGV56Dqnd4dIhs29Ojp"

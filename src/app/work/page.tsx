@@ -144,11 +144,11 @@ export default function WorkPage() {
                   </summary>
                   <blockquote className="mt-2 border-l-2 border-[#d9cfbf] pl-4 text-[14px] italic leading-6 text-[#6a7d8a]">
                     &ldquo;My first project as a full-time engineer in Signify and I faced a steep learning curve. 
-                    A shift from university projects, I learnt the importance of 
+                    It was a major shift from university projects, I learnt the importance of 
                     code-readability, documentation, and stakeholder management.
-                    On the technical side, I got a deep understanding of BLE on end devices — handling edge cases, adding robustness,
+                    On the technical side, I got a deep understanding of BLE on end-devices. Handling edge cases, adding robustness,
                     and deliberately breaking the system to find out where it fails in the field.
-                    The project spanned about a year. I had complete ownership of it, and still do — when something comes up
+                    The project spanned about a year. I had complete ownership of it, and still do. When something comes up
                     in the field, I&apos;m the first person asked.&rdquo;
                   </blockquote>
                 </details>
@@ -165,10 +165,10 @@ export default function WorkPage() {
                   </summary>
                   <blockquote className="mt-2 border-l-2 border-[#d9cfbf] pl-4 text-[14px] italic leading-6 text-[#6a7d8a]">
                     &ldquo;A big step-up from my first project. Maintaining separate platforms across product lines
-                    carries enormous development, cloud, and maintenance cost — unifying them is the obvious win,
-                    but for devices already in the field, ensuring a smooth transition without breaking backward
-                    compatibility is where the real complexity lives. I learnt that dependencies don&apos;t end
-                    at the device — they ripple through the entire ecosystem these devices operate in.
+                    carries enormous development, cloud, and maintenance cost. Unifying them is a logical architecture choice. 
+                    However, for devices already in the field, ensuring a smooth transition without breaking backward
+                    compatibility is a complex issue. I learnt that dependencies don&apos;t end
+                    at the device but ripple through the entire ecosystem these devices operate in.
                     My role expanded into product design, interoperability edge cases, validation strategy,
                     and cross-team alignment to prevent unexpected field failures.
                     This project is en-route production in 2026.&rdquo;
@@ -189,18 +189,18 @@ export default function WorkPage() {
                   <blockquote className="mt-2 border-l-2 border-[#d9cfbf] pl-4 text-[14px] italic leading-6 text-[#6a7d8a]">
                     &ldquo;A critical piece of the platform unification. After a major OTA upgrade,
                     persistent data on the external flash is often incompatible with the new firmware.
-                    The default behaviour — erase everything and redeploy — means enormous commissioning
+                    The default behaviour is to erase everything and redeploy. This results in enormous commissioning
                     costs, unexplained field failures, and device crashes nobody can diagnose remotely.
                     My job was to make sure that when thousands of devices in the field upgraded,
-                    their existing configuration and operational data survived the transition intact.
+                    their existing configuration and operational data survived the transition.
                     That meant designing a migration strategy around persistent memory layouts, safe
                     storage and retrieval sequences, mutex-protected access to avoid race conditions
                     under RTOS task scheduling, and deliberate fallback paths so a failed upgrade
-                    never bricks a device — it stays recoverable over the air.
+                    never bricks a device and it stays recoverable over the air.
                     It required a deep understanding of the external drive architecture, interrupt
                     behaviour, task priorities, and every edge case where a half-written migration
                     could leave the system in an inconsistent state. Designing the test scenarios
-                    was just as involved — you have to simulate partial upgrades, power loss mid-write,
+                    was just as involved: simulating partial upgrades, power loss mid-write,
                     and mixed-version networks. This was one of the most technically demanding tasks
                     I&apos;ve taken on, and it reinforced that in embedded systems at scale,
                     the upgrade path is as important as the feature itself.&rdquo;
@@ -254,7 +254,7 @@ export default function WorkPage() {
             <p className="mt-3 text-[16px] leading-7 text-[#3d4d5b]">
               I built a novel algorithm and a testing framework that tracks reliability, robustness, and
               responsiveness with quantitative metrics. The result: automated &ldquo;health reports&rdquo;
-              for deployed networks — ensuring that SDK upgrades and firmware changes don&apos;t quietly
+              for deployed networks, ensuring that SDK upgrades and firmware changes don&apos;t quietly
               degrade performance in the field. It&apos;s a tool that&apos;s is used today in the product
               validation pipeline of the team. My thesis was graded <span className="font-medium">8.95/10</span>,
               and Signify offered me a full-time role before I&apos;d finished writing it.
@@ -327,15 +327,15 @@ export default function WorkPage() {
                 My key reflections on this project
               </summary>
               <blockquote className="mt-2 border-l-2 border-[#d9cfbf] pl-4 text-[14px] italic leading-6 text-[#6a7d8a]">
-                &ldquo;My first job out of my bachelor&apos;s — and COVID hit at the same time.
+                &ldquo;My first job out of my bachelor&apos;s and COVID hit at the same time.
                 A few months in, KPIT pushed new joiners&apos; start dates indefinitely.
                 Most companies were laying off senior people, let alone hiring fresh graduates.
-                Instead of onboarding, we were put through an intensive &lsquo;PACE&rsquo; training on automotive technology —
-                car systems, engines, CAN protocol — which turned out to be genuinely valuable.
-                But I was disheartened. This wasn&apos;t how I&apos;d imagined the start of my career.
+                Instead of onboarding, we were put through an intensive &lsquo;PACE&rsquo; training on automotive technology (
+                car systems, engines, CAN protocol) which turned out to be genuinely valuable.
+                However it was still disheartening as this wasn&apos;t how I&apos;d expected the start of my career to be like.
                 I wasn&apos;t sure I&apos;d have a job anytime soon, so alongside the training I started
                 exploring master&apos;s programmes and applied for embedded systems in Europe.
-                Eventually both came through at once — my KPIT offer letter and a fully funded
+                Eventually both came through at once, my KPIT offer letter and a fully funded
                 master&apos;s in Europe. I chose the latter. My time at KPIT was short but it taught me
                 corporate culture and gave me a foundation in automotive systems that I still draw on.&rdquo;
               </blockquote>
@@ -379,8 +379,8 @@ export default function WorkPage() {
             </div>
 
             <p className="mt-5 text-[16px] leading-7 text-[#3d4d5b]">
-              Smart Health Global was a pre-seed start-up with just 15 employees when I joined —
-              incubated and state-funded, doing genuinely impactful work. Large parts of India still
+              Smart Health Global was a pre-seed start-up with just 15 employees when I joined. It is an
+              incubated and state-funded start-up, doing genuinely impactful work. Large parts of India still
               lack access to affordable healthcare, and a vision disability can mean a life of extreme
               hardship. SHG was building affordable smart vision glasses to help blind users read
               newspapers, magazines, and road signs independently.
@@ -404,7 +404,7 @@ export default function WorkPage() {
             </ul>
 
             <p className="mt-3 text-[15px] leading-7 text-[#3d4d5b]">
-              Both projects gave me hands-on experience in product-facing embedded development — moving
+              Both projects gave me hands-on experience in product-facing embedded development, moving
               from prototype to something that could actually reach communities in need.
             </p>
           </motion.article>
@@ -451,7 +451,7 @@ export default function WorkPage() {
               synchronisation under extreme power constraints: both transmitter and receiver sleep most
               of the time, and the receiver must wake up at precisely the right moment to catch the
               transmitter&apos;s beacon. Miss the window, and you lose the packet. Channel hopping adds
-              another layer — the frequency changes on every slot, so timing and frequency alignment
+              another layer as the frequency changes on every slot, so timing and frequency alignment
               must be locked in together.
             </p>
 
@@ -460,11 +460,11 @@ export default function WorkPage() {
                 My key reflections on this project
               </summary>
               <blockquote className="mt-2 border-l-2 border-[#d9cfbf] pl-4 text-[14px] italic leading-6 text-[#6a7d8a]">
-                &ldquo;This internship is what pointed me toward embedded systems — and specifically
-                networked embedded — for my master&apos;s. It was my first real encounter with
-                timing constraints in low-power wireless: the kind where a microsecond of drift means
+                &ldquo;This internship is what pointed me toward embedded systems, and specifically
+                networked embedded, for my master&apos;s. It was my first real encounter with
+                timing constraints in low-power wireless where a microsecond of drift means
                 a missed beacon and a dead link. It drilled into me that in constrained networks,
-                correctness isn&apos;t just about logic — it&apos;s about time.&rdquo;
+                correctness isn&apos;t just about logic but also about time.&rdquo;
               </blockquote>
             </details>
           </motion.article>
